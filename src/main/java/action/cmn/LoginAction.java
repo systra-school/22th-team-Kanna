@@ -78,6 +78,8 @@ public class LoginAction extends Action {
 
         if (CheckUtils.isEmpty(loginDto)) {
             forward = "error";
+            // セッションにエラーメッセージを追加（2024/02/22　太田）
+            session.setAttribute("error", "入力値が正しくありません。");
         } else {
 
             // ログインユーザ保持用Dtoを作成する

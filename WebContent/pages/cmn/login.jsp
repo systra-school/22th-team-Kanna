@@ -38,6 +38,8 @@
 		      <br/>
 		      <html:password property="password" size="16" redisplay="false" value="sh0001"/>
 		      <br/>
+		      <%-- エラーメッセージを表示 --%>
+		      ${error}
 		      <br/>
 		      <html:submit property="submit" value="送信" />
 		      <html:reset value="リセット" />
