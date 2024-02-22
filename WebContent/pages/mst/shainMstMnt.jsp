@@ -5,6 +5,7 @@
  *
  * 変更履歴
  * 1.0  2010/09/13 Kazuya.Naraki
+ * 2/22 選択肢を追加 mizobe　
  */
 %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
@@ -14,22 +15,20 @@
 <%@page import="form.mst.ShainMstMntForm"%>
 <%@page import="java.util.List"%>
 <%@page import="form.mst.ShainMstMntBean"%>
-<%@page contentType="text/html; charset=Shift_JIS"
-	pageEncoding="Shift_JIS"%>
+<%@page contentType="text/html; charset=Shift_JIS" pageEncoding="Shift_JIS"%>
 <%@ page import="constant.RequestSessionNameConstant"%>
 <%@ page import="constant.CommonConstant"%>
 
-<bean:size id="shainMstMntBeanListSize" name="shainMstMntForm"
-	property="shainMstMntBeanList" />
+<bean:size id="shainMstMntBeanListSize" name="shainMstMntForm" property="shainMstMntBeanList"/>
 <html>
-<head>
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
-<script type="text/javascript" src="/kikin/pages/js/common.js"></script>
-<script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
-<script type="text/javascript" src="/kikin/pages/js/message.js"></script>
-<script type="text/javascript" language="Javascript1.1">
+  <head>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+    <script type="text/javascript" src="/kikin/pages/js/common.js"></script>
+    <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
+    <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
+    <script type="text/javascript" language="Javascript1.1">
     <!--
     /**
      * チェックボックスがチェックされたら true、されていなければ false
@@ -61,7 +60,7 @@
      */
     function shainMstMntUpdate() {
         // 一覧のサイズ
-        var listshainMstMntBeanListSizenListSize %>;
+        var listSize = <%= shainMstMntBeanListSize %>;
 
         // パスワードエラーメッセージ
         var passwordErrorMsg = '';
@@ -179,7 +178,6 @@
 										value="<%=selectKengenId%>" indexed="true">
 										<html:optionsCollection name="shainMstMntForm"
 											property="kengenCmbMap" value="key" label="value" />
-										<!-- 新しい選択肢を追加 2/22 溝部-->
 										<html:option value="3">管理者</html:option>
 										<html:option value="4">一般</html:option>
 									</html:select></td>
@@ -200,10 +198,10 @@
 				<tr>
 					<td id="footLeft"></td>
 					<td id="footCenter"></td>
-					<td id="footRight"><input value="新規登録" type="button"
-						class="smlButton" onclick="shainMstMntRegistInit()" /> <input
-						value="更新" type="button" class="smlButton"
-						onclick="shainMstMntUpdate()" /></td>
+					<td id="footRight">
+					<input value="新規登録" type="button" class="smlButton"  onclick="shainMstMntRegistInit()" />
+            		<input value="更新" type="button" class="smlButton"  onclick="shainMstMntUpdate()" />
+					</td>
 				</tr>
 			</table>
 		</div>

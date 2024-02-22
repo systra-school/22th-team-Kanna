@@ -5,6 +5,7 @@
  *
  * 変更履歴
  * 1.0  2010/09/13 Kazuya.Naraki
+ * 2/22 選択肢を追加 mizobe
  */
 %>
 <%@page contentType="text/html; charset=Shift_JIS"
@@ -124,7 +125,6 @@
 									property="kengenId" value="01">
 									<html:optionsCollection name="shainMstMntForm"
 										property="kengenCmbMap" value="key" label="value" />
-									<!-- 新しい選択肢を追加 2/22 溝部-->
 									<html:option value="3">管理者</html:option>
 									<html:option value="4">一般</html:option>
 								</html:select></td>
