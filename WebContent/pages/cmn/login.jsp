@@ -44,11 +44,14 @@
 		      <html:submit property="submit" value="送信" />
 		      <html:reset value="リセット" />
 		    </html:form>
+		    <%--
+		    不要なテキストを非表示にしました。（2024/02/22　太田）
 		    sh0001<BR>
 		    sh0002<BR>
 		    sh0003<BR>
 		    sh0004<BR>
 		    sh0005<BR>
+		     --%>
 		  </div>
 		</div>
 	    <div id="footer">
