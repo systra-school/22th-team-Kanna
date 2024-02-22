@@ -178,8 +178,8 @@
 										value="<%=selectKengenId%>" indexed="true">
 										<html:optionsCollection name="shainMstMntForm"
 											property="kengenCmbMap" value="key" label="value" />
-										<html:option value="3">ŠÇ—ŽÒ</html:option>
-										<html:option value="4">ˆê”Ê</html:option>
+										<html:option value="01">ŠÇ—ŽÒ</html:option>
+										<html:option value="02">ˆê”Ê</html:option>
 									</html:select></td>
 								<td width="100px" align="center"><html:checkbox
 										property="deleteShainId" name="shainMstMntBeanList"

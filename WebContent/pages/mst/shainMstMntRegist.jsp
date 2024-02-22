@@ -125,8 +125,8 @@
 									property="kengenId" value="01">
 									<html:optionsCollection name="shainMstMntForm"
 										property="kengenCmbMap" value="key" label="value" />
-									<html:option value="3">ŠÇ—ŽÒ</html:option>
-									<html:option value="4">ˆê”Ê</html:option>
+									<html:option value="01">ŠÇ—ŽÒ</html:option>
+									<html:option value="02">ˆê”Ê</html:option>
 								</html:select></td>
 						</tr>
 					</table>
