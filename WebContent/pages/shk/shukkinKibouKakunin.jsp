@@ -107,7 +107,9 @@
                     </table>
                   </td>
                   <td>
-                    <div style="overflow-x: auto;overflow-y: hidden; width:1067px;height: 100%; text-align:center;">
+                  	<%-- テーブルレイアウトの修正（下のdivタグ、style属性、widthプロパティを修正）2024/02/23　太田 --%>
+                    <div style="overflow-x: auto;overflow-y: hidden; width:100%;height: 100%; text-align:center;">
+                    <%--<div style="overflow-x: auto;overflow-y: hidden; width:1067px;height: 100%; text-align:center;"> --%>
                       <table border="1" cellpadding="0" cellspacing="0">
                         <tr class="tblHeader">
                           <td width="40px" align="center" valign="middle">
