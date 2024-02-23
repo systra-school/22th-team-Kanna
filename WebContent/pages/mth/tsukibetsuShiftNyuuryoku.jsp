@@ -106,7 +106,8 @@ if (listSize > intShowLength) {
         </table>
       </div>
       <div id="gymBody" style="overflow: hidden;">
-        <html:form action="/shukkinKibouNyuuryokuInit" >
+      	<%-- 画面遷移エラーを修正（formのactionの値を変更）2024/02/23　太田 --%>
+        <html:form action="/tsukibetsuShiftNyuuryokuInit" >
           <div style="margin-left:50px;">
             <div style="height: 25px;">
               表示年月：
