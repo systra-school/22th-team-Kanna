@@ -30,7 +30,7 @@
 		</property>
 		 -->
 		<property name="URL">
-			"jdbc:mysql://localhost:3306/kikin_db?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=JST"
+			"jdbc:mysql://192.168.12.57:3306/kikin_db?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=JST"
 		</property>
 		<property name="user">"root"</property>
 		<property name="password">""</property>
