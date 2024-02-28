@@ -111,8 +111,8 @@
           </div>
 
           <div class="menuBlock">
-            <html:form action="/login">
-              <input type="submit" value="Šó–]o‹Î“ú“ü—Í" class="bigButton" />
+			 <html:form action="/ShukkinKibouNyuryokuInit">
+           	  <input type="submit" value="Šó–]o‹Î“ú“ü—Í" class="bigButton" />
             </html:form>
           </div>
 
