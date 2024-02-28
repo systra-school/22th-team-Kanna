@@ -144,13 +144,19 @@
                     <bean:write name="kinmuJissekiNyuryokuKakuninList" property="symbol" /><br>
                   </td>
                   <td width="100px" align="center">
-                    <html:text style="text-align:center" size="10" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="startTime" indexed="true"></html:text><br>
+                  	<%-- レイアウト修正(sizeの値を修正) --%>
+                    <html:text style="text-align:center" size="5" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="startTime" indexed="true"></html:text><br>
+                    <%-- <html:text style="text-align:center" size="10" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="startTime" indexed="true"></html:text><br> --%>
                   </td>
                   <td width="100px" align="center">
-                    <html:text style="text-align:center" size="10" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="endTime" indexed="true"></html:text><br>
+                  	<%-- レイアウト修正(sizeの値を修正) --%>
+                    <html:text style="text-align:center" size="5" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="endTime" indexed="true"></html:text><br>
+                    <%-- <html:text style="text-align:center" size="10" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="endTime" indexed="true"></html:text><br> --%>
                   </td>
                   <td width="100px" align="center">
-                    <html:text style="text-align:center" size="10" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="breakTime" indexed="true"></html:text><br>
+                  	<%-- レイアウト修正(sizeの値を修正) --%>
+                    <html:text style="text-align:center" size="5" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="breakTime" indexed="true"></html:text><br>
+                    <%-- <html:text style="text-align:center" size="10" maxlength="5" name="kinmuJissekiNyuryokuKakuninList" property="breakTime" indexed="true"></html:text><br> --%>
                   </td>
                   <td width="100px" align="center">
                     <bean:write name="kinmuJissekiNyuryokuKakuninList" property="jitsudouTime" /><br>
@@ -162,7 +168,9 @@
                     <bean:write name="kinmuJissekiNyuryokuKakuninList" property="kyuujitsuTime" /><br>
                   </td>
                   <td width="220px" align="left">
-                    <html:text style="text-align:left" size="40" name="kinmuJissekiNyuryokuKakuninList" property="bikou" indexed="true"></html:text><br>
+                  	<%-- レイアウト修正(sizeの値を修正) --%>
+                    <html:text style="text-align:left" size="25" name="kinmuJissekiNyuryokuKakuninList" property="bikou" indexed="true"></html:text><br>
+                    <%-- <html:text style="text-align:left" size="40" name="kinmuJissekiNyuryokuKakuninList" property="bikou" indexed="true"></html:text><br> --%>
                   </td>
                 </tr>
               </table>
