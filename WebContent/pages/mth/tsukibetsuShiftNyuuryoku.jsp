@@ -54,6 +54,14 @@ if (listSize > intShowLength) {
     <!--
 
     /**
+     *基本シフト反映（追加　2024/02/23　太田）
+     */
+    function submitKihonShift() {
+        // サブミット
+        doSubmit('/kikin/tsukibetsuShiftNyuuryokuKihonShift.do');
+    }
+    
+    /**
      * 出勤希望反映
      */
     function submitShukkinKibou() {
@@ -88,7 +96,7 @@ if (listSize > intShowLength) {
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="tukibetsu">
     <div id="wrapper">
       <div id="header">
         <table>
@@ -126,7 +134,7 @@ if (listSize > intShowLength) {
             <table width="1100px" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="150px" valign="top">
-                  <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
+                  <table class="tblHeader tblLeft" border="1" cellpadding="0" cellspacing="0">
                     <tr height="<%=heightSize %>px">
                       <td width="150px" align="center">
                         &nbsp;
@@ -147,7 +155,7 @@ if (listSize > intShowLength) {
                   </table>
                 </td>
                 <td>
-                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height: <%=heightSize * (listSize + 2) + 18 %>px; text-align:center;">
+                  <div style="overflow-x: auto;overflow-y: hidden; width:985px; width: 70vw; height: <%=heightSize * (listSize + 2) + 27 %>px; text-align:center;">
                     <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
                       <tr height="<%=heightSize %>px">
                         <td width="40px" align="center">
@@ -538,12 +546,12 @@ if (listSize > intShowLength) {
             </table>
           </div>
         </html:form>
-        <div style="margin-left:50px;">
+      </div>
+        <div class="hanei">
           <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
-          <input value="基本シフト反映" type="button" class="lngButton"  />
+          <input value="基本シフト反映" type="button" class="lngButton"  onclick="submitKihonShift()" /><%-- onclick属性を追加（2024/02/23　太田） --%>
           <input value="出勤希望日反映" type="button" class="lngButton"  onclick="submitShukkinKibou()" />
         </div>
-      </div>
       <div id="footer">
         <table>
           <tr>

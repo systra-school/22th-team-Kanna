@@ -1,5 +1,5 @@
 /*
-* body’è‹`
+* bodyï¿½ï¿½`
 */
 body {
     background-color: #FFFFFF;
@@ -15,7 +15,7 @@ errorbody {
 
 
 /*
-* ƒwƒbƒ_[Aƒtƒbƒ^[‹¤’Ê’è‹`
+* ï¿½wï¿½bï¿½_ï¿½[ï¿½Aï¿½tï¿½bï¿½^ï¿½[ï¿½ï¿½ï¿½Ê’ï¿½`
 */
 #header,#gymBody,#footer {
     width: 100%;
@@ -25,7 +25,7 @@ errorbody {
 }
 
 /*
-* ƒwƒbƒ_[’è‹`
+* ï¿½wï¿½bï¿½_ï¿½[ï¿½ï¿½`
 */
 #header {
     top: 2px;
@@ -48,7 +48,7 @@ errorbody {
     text-align:right;
 }
 /*
-* ƒƒjƒ…[‰æ–Ê‚Ìƒ{ƒ^ƒ“
+* ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½Ê‚Ìƒ{ï¿½^ï¿½ï¿½
 */
 .menuBlock {
     margin-left:30px;
@@ -58,7 +58,7 @@ errorbody {
 }
 
 /*
-* ‹Æ–±body’è‹`
+* ï¿½Æ–ï¿½bodyï¿½ï¿½`
 */
 #gymBody {
     height: 500px;
@@ -66,7 +66,7 @@ errorbody {
 }
 
 /*
-* ƒtƒbƒ^[’è‹`
+* ï¿½tï¿½bï¿½^ï¿½[ï¿½ï¿½`
 */
 #footer {
     bottom: 1%;
@@ -88,7 +88,7 @@ errorbody {
     text-align:right;
 }
 /*
-* ƒGƒ‰[ƒy[ƒW ƒwƒbƒ_[Aƒtƒbƒ^[‹¤’Ê’è‹`
+* ï¿½Gï¿½ï¿½ï¿½[ï¿½yï¿½[ï¿½W ï¿½wï¿½bï¿½_ï¿½[ï¿½Aï¿½tï¿½bï¿½^ï¿½[ï¿½ï¿½ï¿½Ê’ï¿½`
 */
 #errorHeader,#errorGymBody,#errorFooter {
     width: 100%;
@@ -98,7 +98,7 @@ errorbody {
 }
 
 /*
-* ƒGƒ‰[ƒy[ƒW ƒwƒbƒ_[’è‹`
+* ï¿½Gï¿½ï¿½ï¿½[ï¿½yï¿½[ï¿½W ï¿½wï¿½bï¿½_ï¿½[ï¿½ï¿½`
 */
 #errorHeader {
     top: 1%;
@@ -109,7 +109,7 @@ errorbody {
 }
 
 /*
-* ƒGƒ‰[ƒy[ƒW ‹Æ–±body’è‹`
+* ï¿½Gï¿½ï¿½ï¿½[ï¿½yï¿½[ï¿½W ï¿½Æ–ï¿½bodyï¿½ï¿½`
 */
 #errorGymBody {
     top: 8%;
@@ -120,7 +120,7 @@ errorbody {
 }
 
 /*
-* ƒGƒ‰[ƒy[ƒW ƒtƒbƒ^[’è‹`
+* ï¿½Gï¿½ï¿½ï¿½[ï¿½yï¿½[ï¿½W ï¿½tï¿½bï¿½^ï¿½[ï¿½ï¿½`
 */
 #errorFooter {
     bottom: 1%;
@@ -128,7 +128,7 @@ errorbody {
 }
 
 /*
-* ƒ{ƒ^ƒ“ƒTƒCƒY’Êí
+* ï¿½{ï¿½^ï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½Êï¿½
 */
 .smlButton {
     width: 100px;
@@ -136,7 +136,7 @@ errorbody {
 }
 
 /*
-* ƒ{ƒ^ƒ“ƒTƒCƒY‘å
+* ï¿½{ï¿½^ï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½
 */
 .bigButton {
     width: 200px;
@@ -144,7 +144,7 @@ errorbody {
 }
 
 /*
-* ƒ{ƒ^ƒ“ƒTƒCƒYƒƒ“ƒO
+* ï¿½{ï¿½^ï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½O
 */
 .lngButton {
     width: 200px;
@@ -153,7 +153,7 @@ errorbody {
 
 
 /*
-* –ß‚éƒ{ƒ^ƒ“‚ÌƒXƒ^ƒCƒ‹
+* ï¿½ß‚ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒXï¿½^ï¿½Cï¿½ï¿½
 */
 .backBtn {
     top: 5px;
@@ -161,7 +161,7 @@ errorbody {
 }
 
 /*
-* ƒe[ƒuƒ‹ƒwƒbƒ_[‚ÌƒXƒ^ƒCƒ‹
+* ï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½wï¿½bï¿½_ï¿½[ï¿½ÌƒXï¿½^ï¿½Cï¿½ï¿½
 */
 .tblHeader {
     background-color: #98FB98;
@@ -169,28 +169,49 @@ errorbody {
 }
 
 /*
-* ƒe[ƒuƒ‹ƒ{ƒfƒB‚ÌƒXƒ^ƒCƒ‹
+* ï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½{ï¿½fï¿½Bï¿½ÌƒXï¿½^ï¿½Cï¿½ï¿½
 */
 .tblBody {
     background-color: #E0FFFF;
 }
 /*
-* •¶šF •
+* ï¿½ï¿½ï¿½ï¿½ï¿½F ï¿½ï¿½
 */
 .fontBlack {
     color: black;
 }
 
 /*
-* •¶šF Â
+* ï¿½ï¿½ï¿½ï¿½ï¿½F ï¿½ï¿½
 */
 .fontBlue {
     color: blue;
 }
 
 /*
-* •¶šF Ô
+* ï¿½ï¿½ï¿½ï¿½ï¿½F ï¿½ï¿½
 */
 .fontRed {
     color: red;
+}
+
+/*æœˆåˆ¥ã‚·ãƒ•ãƒˆ*/
+.tukibetsu #gymBody {
+	height:470px;
+}
+.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft td {
+	display:block;
+	height:20px;
+}
+.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft tr:first-of-type td,
+.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft tr:nth-of-type(2) td {
+	height: 24px;
+}
+.tukibetsu .hanei {
+	background-color: #66CCFF;
+	width: 100%;
+	padding-left:50px;
+}
+.tukibetsu #footRight {
+	float:none;
 }
