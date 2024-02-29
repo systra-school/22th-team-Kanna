@@ -254,6 +254,10 @@ if (listSize > intShowLength) {
                               color = "fontBlack";
                           }
                           %>
+                      <%-- 祝日の曜日を赤色にする（20247/02/29　太田） --%>
+                      <logic:equal name="dateBeanList" property="shukujitsuFlg" value="true">
+                      	<% color = "fontRed"; %>
+                      </logic:equal>
 
                           <td width="40px" align="center" class="<%=color %>">
                             <bean:write property="youbi" name="dateBeanList"/><br>

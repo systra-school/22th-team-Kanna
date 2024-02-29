@@ -15,10 +15,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import constant.DbConstant.Mshukujitsu;
-
-
 import business.db.dao.AbstractDao;
+import constant.DbConstant.Mshukujitsu;
 
 /**
  * 説明：共通部品用Ｄａｏ
@@ -95,6 +93,9 @@ public class CommonUtilsDao extends AbstractDao {
             strSql.append(" WHERE SUBSTRING(");
             strSql.append(Mshukujitsu.YEAR_MONTH_DAY.getName());
             strSql.append(", 1, 6)");
+            // 該当月をwhere句に指定（2024/02/29　太田）
+            strSql.append(" LIKE ");
+            strSql.append(yearMonth);
 
             PreparedStatement ps = connection.prepareStatement(strSql.toString());
 
@@ -104,10 +105,12 @@ public class CommonUtilsDao extends AbstractDao {
             // 実行
             ResultSet rs = ps.executeQuery();
 
+            // 一件しか取得できなかったのでループを追加（2024/02/29　太田）
             // 取得結果セット
-            if (rs.next()) {
+            while (rs.next()) {
                 rtnList.add(rs.getString(Mshukujitsu.YEAR_MONTH_DAY.getName()));
-            } else {
+            }
+            if(rtnList.isEmpty()) {
                 return null;
             }
         } catch (SQLException e) {
