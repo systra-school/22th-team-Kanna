@@ -96,7 +96,7 @@ if (listSize > intShowLength) {
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
-  <body class="tukibetsu">
+  <body class="tukibetsu tukibetsuNyuuryoku">
     <div id="wrapper">
       <div id="header">
         <table>

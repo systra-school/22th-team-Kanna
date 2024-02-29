@@ -79,7 +79,7 @@ if (listSize > intShowLength) {
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="tukibetsu">
     <div id="wrapper">
       <div id="header">
         <table>
@@ -116,7 +116,7 @@ if (listSize > intShowLength) {
             <table width="1100px" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="150px" valign="top">
-                  <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
+                  <table class="tblHeader tblLeft" border="1" cellpadding="0" cellspacing="0">
                     <tr height="<%=heightSize %>px">
                       <td width="150px" align="center">
                         &nbsp;

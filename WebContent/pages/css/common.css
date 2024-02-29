@@ -196,16 +196,24 @@ errorbody {
 }
 
 /*月別シフト*/
-.tukibetsu #gymBody {
+.tukibetsuNyuuryoku #gymBody {
 	height:470px;
 }
-.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft td {
+.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft td,
+.tukibetsu form[name="shukkinKibouKakuninForm"] .tblLeft td {
 	display:block;
 	height:20px;
 }
 .tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft tr:first-of-type td,
-.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft tr:nth-of-type(2) td {
+.tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft tr:nth-of-type(2) td,
+.tukibetsu form[name="shukkinKibouKakuninForm"] .tblLeft tr:first-of-type td,
+.tukibetsu form[name="shukkinKibouKakuninForm"] .tblLeft tr:nth-of-type(2) td {
 	height: 24px;
+}
+.tukibetsu form[name="shukkinKibouKakuninForm"] table.tblHeader:not(.tblLeft) .tblBody td {
+	/*display:block;*/
+	/*height:20px;*/
+	font-size: 13px;
 }
 .tukibetsu .hanei {
 	background-color: #66CCFF;
