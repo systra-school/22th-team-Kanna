@@ -531,6 +531,7 @@ if (listSize > intShowLength) {
 
             </td>
             <td id="footRight">
+            	<input value="o‹ÎŠó–]“úŽQÆ" type="button" class="smlButton" style="width:200px;" onclick="view()" />
               <input value="“o˜^" type="button" class="smlButton"  onclick="submitRegist()" />
             </td>
           </tr>
