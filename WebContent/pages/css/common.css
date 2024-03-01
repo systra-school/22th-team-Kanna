@@ -201,7 +201,8 @@ errorbody {
 	height:470px;
 }
 .tukibetsu form[name="tsukibetsuShiftNyuuryokuForm"] .tblLeft td,
-.tukibetsu form[name="shukkinKibouKakuninForm"] .tblLeft td {
+.tukibetsu form[name="shukkinKibouKakuninForm"] .tblLeft td,
+.shk_nyuuryoku .tblLeft tr:last-of-type td {
 	display:block;
 	height:20px;
 }

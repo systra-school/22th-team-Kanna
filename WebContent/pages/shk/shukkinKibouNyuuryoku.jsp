@@ -21,21 +21,13 @@
 
 <bean:size id="dateBeanListSize" name="shukkinKibouNyuuryokuForm" property="dateBeanList"/>
 <bean:size id="listSize" name="shukkinKibouNyuuryokuForm" property="dateBeanList"/>
-<bean:define id="color" value="" type="java.lang.String"/>
 <bean:define id="showLength" value="18" type="java.lang.String"/>
 <bean:define id="offset" name="shukkinKibouNyuuryokuForm" property="offset" />
 <bean:define id="color" value="" type="java.lang.String"/>
-<bean:define id="cntPage" name="shukkinKibouNyuuryokuForm" property="cntPage" type="java.lang.Integer"/>
-<bean:define id="maxPage" name="shukkinKibouNyuuryokuForm" property="maxPage" type="java.lang.Integer"/>
 <%
 final int heightSize = 22;
 
 int intShowLength = Integer.parseInt(showLength);
-
-// 表示しているリストサイズの調整
-if (cntPage.intValue() == maxPage.intValue()) {
-    listSize = listSize % intShowLength;
-}
 
 if (listSize > intShowLength) {
     listSize = intShowLength;
@@ -79,7 +71,7 @@ if (listSize > intShowLength) {
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="shk_nyuuryoku">
     <div id="wrapper">
       <div id="header">
         <table>
@@ -99,6 +91,8 @@ if (listSize > intShowLength) {
       <div id="gymBody" style="overflow: hidden;">
        <div style="margin-left:10px;">
         <html:form action="/shukkinKibouNyuuryokuInit" >
+       	<div style="margin-left:50px;">
+            <div style="height: 25px;">
               表示年月：
               <bean:define id="sessionYearMonth" name="shukkinKibouNyuuryokuForm" property="yearMonth" type="String"/>
               <html:select property="yearMonth" name="shukkinKibouNyuuryokuForm"  onchange="submitSearch()">
@@ -107,36 +101,34 @@ if (listSize > intShowLength) {
                                       value="key"
                                       label="value"/>
               </html:select>
-              <bean:write name="shukkinKibouNyuuryokuForm" property="cntPage"/>/
-              <bean:write name="shukkinKibouNyuuryokuForm" property="maxPage"/>
             </div>
             <table width="1100px" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="150px" valign="top">
-                   <table border="1" cellpadding="0" cellspacing="0">
+                   <table class="tblLeft" border="1" cellpadding="0" cellspacing="0">
                     <tr height="<%=heightSize %>px">
-                      <td width="150px" align="center">
+                      <td class="tblHeader" width="150px" align="center">
                         &nbsp;
                       </td>
                     </tr>
                     <tr height="<%=heightSize %>px">
-                      <td width="150px" align="center">
+                      <td class="tblHeader" width="150px" align="center">
                       社員名
                       </td>
                     </tr>
-                      <td width="150px" align="center">
-            			<logic:iterate offset="offset" length="<%=showLength %>"  id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
+           			<logic:iterate offset="offset" length="<%=showLength %>"  id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
                       <tr height="<%=heightSize %>px">
-                               <bean:write property="shainName" name="shukkinKibouNyuuryokuBeanList"/><br>
-                      </tr>
-          			   </logic:iterate>
+                      <td class="tblBody" width="150px" align="center">
+                         <bean:write property="shainName" name="shukkinKibouNyuuryokuBeanList"/><br>
                       </td>
+                      </tr>
+        			   </logic:iterate>
                   </table>
                 </td>
                 <td>
-                    <div style="overflow-x: auto;overflow-y: hidden; width:100%;height: 100%; text-align:center;">
+                 <div style="overflow-x: auto;overflow-y: hidden; width:100%;height: 100%; text-align:center;">
                     <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
-                       <tr class="tblHeader">
+                       <tr height="<%=heightSize %>px">
                         <td width="40px" align="center">
                           1
                         </td>
@@ -241,11 +233,11 @@ if (listSize > intShowLength) {
                       </tr>
                       <tr height="<%=heightSize %>px">
                         <logic:iterate id="dateBeanList" name="shukkinKibouNyuuryokuForm" property="dateBeanList">
-                          <bean:define id="youbiEnum" name="dateBeanList" property="youbiEnum"/>
+                          <bean:define id="youbi" name="dateBeanList" property="youbiEnum"/>
                             <%
-                            if (DayOfWeek.SATURDAY.getRyaku().equals(youbiEnum)) {
+                            if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
                                 color = "fontBlue";
-                            } else if (DayOfWeek.SUNDAY.getRyaku().equals(youbiEnum)) {
+                            } else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi)) {
                                 color = "fontRed";
                             } else {
                                 color = "fontBlack";
@@ -253,7 +245,7 @@ if (listSize > intShowLength) {
                             %>
 
                             <td width="40px" align="center" valign="middle" class="<%=color %>">
-                              <bean:write property="youbi" name="dateBeanList"/>
+                              <bean:write property="youbi" name="dateBeanList"/><br>
                             </td>
                         </logic:iterate>
                       </tr>
@@ -525,6 +517,7 @@ if (listSize > intShowLength) {
             </table>
           </div>
         </html:form>
+        </div>
         <div style="margin-left:50px;">
           <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
         </div>
@@ -538,11 +531,11 @@ if (listSize > intShowLength) {
 
             </td>
             <td id="footRight">
-            	<input value="出勤希望日参照" type="button" class="smlButton" onclick="view()" />
               <input value="登録" type="button" class="smlButton"  onclick="submitRegist()" />
             </td>
           </tr>
         </table>
       </div>
+     </div>
   </body>
 </html>
