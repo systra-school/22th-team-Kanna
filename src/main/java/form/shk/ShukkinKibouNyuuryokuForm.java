@@ -25,11 +25,44 @@ public class ShukkinKibouNyuuryokuForm extends ActionForm {
     /** 日付リスト */
     private List<DateBean> dateBeanList;
     /** 年月 */
-    private String yearMonth = "";
+    private String yearMonth;
     /** シフトコンボ */
     private Map<String, String> shiftCmbMap;
     /** 年月コンボ */
     private Map<String, String> yearMonthCmbMap;
+    /** ページング用 */
+    private String paging;
+    /** オフセット */
+    private int offset;
+    /** 表示ページ */
+    private int cntPage;
+    /** 最大ページ */
+    private int maxPage;
+    
+    public String getPaging() {
+		return paging;
+	}
+	public void setPaging(String paging) {
+		this.paging = paging;
+	}
+	public int getOffset() {
+		return offset;
+	}
+	public void setOffset(int offset) {
+		this.offset = offset;
+	}
+	public int getCntPage() {
+		return cntPage;
+	}
+	public void setCntPage(int cntPage) {
+		this.cntPage = cntPage;
+	}
+	public int getMaxPage() {
+		return maxPage;
+	}
+	public void setMaxPage(int maxPage) {
+		this.maxPage = maxPage;
+	}
 
     /**
      * @return yearMonth

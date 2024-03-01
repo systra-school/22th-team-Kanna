@@ -11,6 +11,7 @@ import java.util.List;
 
 import business.db.dao.shk.ShukkinKibouDao;
 import business.dto.shk.ShukkinKibouKakuninDto;
+import business.dto.shk.ShukkinKibouNyuuryokuDto;
 
 /**
  * 説明：希望出勤日入力処理のロジック
@@ -37,4 +38,15 @@ public class ShukkinKibouLogic {
 
         return kakuninDtoListList;
     }
+	
+	  public List<ShukkinKibouNyuuryokuDto> getShukkinKibouNyuuryokuDtoList(String shainId ,String yearMonth) throws SQLException{
+	  
+	  // Dao 
+		  ShukkinKibouDao dao = new ShukkinKibouDao();
+	  
+	  // シフト情報を取得する。
+		List<ShukkinKibouNyuuryokuDto> nyuuryokuDtoListList =dao.getShiftTblData(shainId ,yearMonth);
+	  
+	  return nyuuryokuDtoListList; }
+	 
 }
