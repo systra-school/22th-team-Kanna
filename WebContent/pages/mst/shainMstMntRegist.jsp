@@ -6,7 +6,6 @@
  * 変更履歴
  * 1.0  2010/09/13 Kazuya.Naraki
  * 2/22 選択肢を追加 mizobe
- * 2/28 不要コードを削除 mizobe
  */
 %>
 <%@page contentType="text/html; charset=Shift_JIS"
@@ -25,7 +24,7 @@
 <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
 <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
 <script type="text/javascript" language="Javascript1.1">
-<!-- 
+<!--
 	/**
 	 * チェックボックスがチェックされたら true、されていなければ false
 	 * param index 対象行番号
@@ -126,6 +125,8 @@
 									property="kengenId" value="01">
 									<html:optionsCollection name="shainMstMntForm"
 										property="kengenCmbMap" value="key" label="value" />
+									<html:option value="01">管理者</html:option>
+									<html:option value="02">一般</html:option>
 								</html:select></td>
 						</tr>
 					</table>
@@ -137,7 +138,8 @@
 				<tr>
 					<td id="footLeft"></td>
 					<td id="footCenter"></td>
-					<td id="footRight"><input value="登録" type="button"class="smlButton" onclick="shainMstMntRegist()" /></td>
+					<td id="footRight"><input value="登録" type="button"
+						class="smlButton" onclick="shainMstMntRegist()" /></td>
 				</tr>
 			</table>
 		</div>

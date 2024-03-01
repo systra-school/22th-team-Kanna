@@ -13,7 +13,7 @@
  */
 function checkHankakuKana(str) {
 
-	if (str.match(/^[ƒ@-ƒ–¦-ß]*$/)) {
+    if (str.match(/^[±-Ý]*$/)) {
         return true;
     }
 

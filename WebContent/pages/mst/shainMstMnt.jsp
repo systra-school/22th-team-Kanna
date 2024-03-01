@@ -6,7 +6,6 @@
  * 変更履歴
  * 1.0  2010/09/13 Kazuya.Naraki
  * 2/22 選択肢を追加 mizobe　
- * 2/28 不要コードを削除 mizobe
  */
 %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
@@ -179,6 +178,8 @@
 										value="<%=selectKengenId%>" indexed="true">
 										<html:optionsCollection name="shainMstMntForm"
 											property="kengenCmbMap" value="key" label="value" />
+										<html:option value="01">管理者</html:option>
+										<html:option value="02">一般</html:option>
 									</html:select></td>
 								<td width="100px" align="center"><html:checkbox
 										property="deleteShainId" name="shainMstMntBeanList"

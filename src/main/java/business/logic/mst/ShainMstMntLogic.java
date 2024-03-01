@@ -6,16 +6,15 @@
  */
 package business.logic.mst;
 
+import static constant.DbConstant.M_shain;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-
 import business.db.dao.mst.ShainMstMntDao;
 import business.dto.LoginUserDto;
 import business.dto.mst.ShainMstMntDto;
 import business.logic.utils.CheckUtils;
 import business.logic.utils.CommonUtils;
-import constant.DbConstant.M_shain;
 
 /**
  * 説明：社員マスタメンテナンス処理のロジック
@@ -31,36 +30,47 @@ public class ShainMstMntLogic {
      * @param loginUserDto ログインユーザーDto
      * @author naraki
      */
-	public void updateMshain(List<ShainMstMntDto> shainMstMntDtoList, LoginUserDto loginUserDto) throws Exception{
-	    if (shainMstMntDtoList == null || shainMstMntDtoList.isEmpty()) {
-	        // 更新対象がない場合は何もせずに終了する
-	        return;
-	    }
+    public void updateMshain(List<ShainMstMntDto> shainMstMntDtoList, LoginUserDto loginUserDto) throws Exception{
 
-	    ShainMstMntDao shainMstMntDao = new ShainMstMntDao();
-	    Connection connection = shainMstMntDao.getConnection();
-	    connection.setAutoCommit(false);
+        // 社員マスタDao
+        ShainMstMntDao shainMstMntDao = new ShainMstMntDao();
+        // コネクション
+        Connection connection = shainMstMntDao.getConnection();
 
-	    try {
-	        for (ShainMstMntDto shainMstMntDto : shainMstMntDtoList) {
-	            boolean deleteFlg = shainMstMntDto.getDeleteFlg();
+        // トランザクション処理
+        connection.setAutoCommit(false);
 
-	            if (deleteFlg) {
-	                shainMstMntDao.deleteShainMst(shainMstMntDto.getShainId());
-	            } else {
-	                shainMstMntDao.updateShainMst(shainMstMntDto, loginUserDto);
-	            }
-	        }
-	        connection.commit();
-	    } catch (Exception e) {
-	        connection.rollback();
-	        throw e;
-	    } finally {
-	        if (connection != null) {
-	            connection.close();
-	        }
-	    }
-	}
+        try {
+            for (int i = 0; i < shainMstMntDtoList.size(); i++) {
+
+                ShainMstMntDto shainMstMntDto = shainMstMntDtoList.get(i);
+                boolean deleteFlg = shainMstMntDto.getDeleteFlg();
+
+                if (deleteFlg) {
+                    // 削除
+                    shainMstMntDao.deleteShainMst(shainMstMntDto.getShainId());
+                } else {
+                    // 更新
+                    shainMstMntDao.updateShainMst(shainMstMntDto, loginUserDto);
+                }
+
+            }
+        } catch (Exception e) {
+            // ロールバック処理
+            connection.rollback();
+
+            // 切断
+            connection.close();
+
+            throw e;
+        }
+
+        // コミット
+        connection.commit();
+        // 切断
+        connection.close();
+
+    }
 
     /**
      * 社員マスタの登録処理を行う
