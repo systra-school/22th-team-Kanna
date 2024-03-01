@@ -432,6 +432,14 @@
         scope="session">
         <forward name="success" path="/pages/mth/tsukibetsuShiftNyuuryoku.jsp"/>
       </action>
+      <!-- 月別シフト基本シフト反映 （追加　2024/02/23　太田）-->
+      <action
+        path="/tsukibetsuShiftNyuuryokuKihonShift"
+        type="action.mth.TsukibetsuShiftNyuuryokuKihonHaneiAction"
+        name="tsukibetsuShiftNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/pages/mth/tsukibetsuShiftNyuuryoku.jsp"/>
+      </action>
       <!-- 月別シフト出勤希望反映 -->
       <action
         path="/tsukibetsuShiftNyuuryokuShukkinKibou"
