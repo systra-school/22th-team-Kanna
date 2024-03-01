@@ -5,7 +5,11 @@
  */
 package action.shk;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +23,7 @@ import org.apache.struts.action.ActionMapping;
 
 import business.dto.LoginUserDto;
 import business.dto.shk.ShukkinKibouNyuuryokuDto;
+import business.logic.comparator.MethodComparator;
 import business.logic.shk.ShukkinKibouLogic;
 import business.logic.utils.CheckUtils;
 import business.logic.utils.ComboListUtilLogic;
@@ -26,7 +31,7 @@ import business.logic.utils.CommonUtils;
 import constant.CommonConstant;
 import constant.RequestSessionNameConstant;
 import form.common.DateBean;
-import form.shk.ShukkinKibouKakuninBean;
+import form.shk.ShukkinKibouNyuuryokuBean;
 import form.shk.ShukkinKibouNyuuryokuForm;
 
 public class ShukkinKibouNyuuryokuSearchAction extends ShukkinKibouAbstractAction{
@@ -73,21 +78,21 @@ public class ShukkinKibouNyuuryokuSearchAction extends ShukkinKibouAbstractActio
         List<DateBean> dateBeanList = CommonUtils.getDateBeanList(yearMonth);
 
         // 出勤希望日を取得する
-        List<List<ShukkinKibouNyuuryokuDto>> kakuninDtoListList = shukkinKibouLogic.getShukkinKibouKakuninDtoList(shainId,yearMonth);
+       List<ShukkinKibouNyuuryokuDto> nyuuryokuDtoListList = shukkinKibouLogic.getShukkinKibouNyuuryokuDtoList(loginUserDto.getShainId(),yearMonth);
 
-        List<ShukkinKibouKakuninBean> shukkinKibouNyuuryokuBeanList = new ArrayList<ShukkinKibouKakuninBean>();
+        List<ShukkinKibouNyuuryokuBean> shukkinKibouNyuuryokuBeanList = new ArrayList<ShukkinKibouNyuuryokuBean>();
 
         // セレクトボックスの取得
         ComboListUtilLogic comboListUtils = new ComboListUtilLogic();
         Map<String, String> shiftCmbMap = comboListUtils.getComboShift(false);
         Map<String, String> yearMonthCmbMap = comboListUtils.getComboYearMonth(CommonUtils.getFisicalDay(CommonConstant.yearMonthNoSl), 3, ComboListUtilLogic.KBN_YEARMONTH_NEXT, false);
 
-        if (CheckUtils.isEmpty(kakuninDtoListList)) {
+        if (CheckUtils.isEmpty(nyuuryokuDtoListList)) {
             // データなし
             forward = CommonConstant.NODATA;
         } else {
             // データあり
-            shukkinKibouNyuuryokuBeanList = ShukkinKibouKakuninInitAction.dtoToBean(kakuninDtoListList, loginUserDto);
+            shukkinKibouNyuuryokuBeanList = dtoToBean(nyuuryokuDtoListList, loginUserDto);
         }
 
         // フォームにデータをセットする
@@ -99,5 +104,51 @@ public class ShukkinKibouNyuuryokuSearchAction extends ShukkinKibouAbstractActio
 
         return mapping.findForward(forward);
     }
+
+	private List<ShukkinKibouNyuuryokuBean> dtoToBean(List<ShukkinKibouNyuuryokuDto> nyuuryokuDtoListList,
+			LoginUserDto loginUserDto)
+			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+		List<ShukkinKibouNyuuryokuBean> shukkinKibouNyuuryokuBeanList = new ArrayList<ShukkinKibouNyuuryokuBean>();
+
+// 社員分のループ
+		for (ShukkinKibouNyuuryokuDto nyuuryokuDtoList : nyuuryokuDtoListList) {
+
+// 実行するオブジェクトの生成
+			ShukkinKibouNyuuryokuBean shukkinKibouNyuuryokuBean = new ShukkinKibouNyuuryokuBean();
+
+// メソッドの取得
+			Method[] methods = shukkinKibouNyuuryokuBean.getClass().getMethods();
+
+// ソートを行う
+			Comparator<Method> asc = new MethodComparator();
+			Arrays.sort(methods, asc); // 配列をソート
+
+// 社員名
+			String shainId = "";
+			String shainName = "";
+
+			int index = 0;
+			for (int i = 0; i < methods.length; i++) {
+// "setShiftIdXX" のメソッドを動的に実行する
+				if (methods[i].getName().startsWith("setSymbol")) {
+					if (index <  nyuuryokuDtoListList.size()) {
+					} else {
+// データなしの場合はハイフン
+						methods[i].invoke(shukkinKibouNyuuryokuBean, "-");
+					}
+
+					index++;
+				}
+			}
+
+// 社員ID、名前をセット
+			shukkinKibouNyuuryokuBean.setShainId(shainId);
+			shukkinKibouNyuuryokuBean.setShainName(shainName);
+
+			shukkinKibouNyuuryokuBeanList.add(shukkinKibouNyuuryokuBean);
+		}
+
+		return shukkinKibouNyuuryokuBeanList;
+	}
 
 }
