@@ -6,7 +6,6 @@
  */
 package business.db.dao.mst;
 
-import static constant.DbConstant.M_shain;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +19,7 @@ import business.db.dao.AbstractDao;
 import business.dto.LoginUserDto;
 import business.dto.mst.ShainMstMntDto;
 import business.logic.utils.CommonUtils;
+import constant.DbConstant.M_shain;
 
 
 
@@ -27,6 +27,7 @@ import business.logic.utils.CommonUtils;
  * 説明：社員マスタメンテナンスDao
  *
  * @author naraki
+ * 無限ロードバグ修正 3/1溝部
  *
  */
 public class ShainMstMntDao extends AbstractDao {
@@ -156,7 +157,7 @@ public class ShainMstMntDao extends AbstractDao {
 
         try {
             // コネクションの取得
-            this.getConnection();
+            //this.getConnection();
 
             StringBuffer strSql = new StringBuffer();
             strSql.append("UPDATE ");
@@ -283,10 +284,7 @@ public class ShainMstMntDao extends AbstractDao {
         } catch (SQLException e) {
             // 例外発生
             throw e;
-        } finally {
-            // コネクション切断
-            disConnect();
-        }
+        } 
     }
 
 }
