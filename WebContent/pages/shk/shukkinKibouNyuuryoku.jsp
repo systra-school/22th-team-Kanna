@@ -126,7 +126,7 @@ if (listSize > intShowLength) {
                   </table>
                 </td>
                 <td>
-                 <div style="overflow-x: auto;overflow-y: hidden; width:100%;height: 100%; text-align:center;">
+                 <div style="overflow-x: auto;overflow-y: hidden; width:985px; height: 100%; text-align:center;">
                     <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
                        <tr height="<%=heightSize %>px">
                         <td width="40px" align="center">
@@ -525,12 +525,9 @@ if (listSize > intShowLength) {
       <div id="footer">
         <table>
           <tr>
-            <td id="footLeft">
-            </td>
-            <td id="footCenter" style="text-align: right;">
-
-            </td>
-            <td id="footRight">
+            <td id="footLeft"></td>
+            <td id="footCenter"></td>
+            <td id="footRight" style="float:right;">
             	<input value="o‹ÎŠó–]“úŽQÆ" type="button" class="smlButton" style="width:200px;" onclick="view()" />
               <input value="“o˜^" type="button" class="smlButton"  onclick="submitRegist()" />
             </td>
