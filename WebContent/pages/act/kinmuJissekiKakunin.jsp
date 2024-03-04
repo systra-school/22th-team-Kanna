@@ -134,7 +134,10 @@ String color = "";
                       color = "fontBlack";
                   }
                   %>
-
+ 				<logic:equal name="kinmuJissekiNyuryokuKakuninList" property="shukujitsuFlg" value="true">
+                      	<% color = "fontRed"; %>
+                </logic:equal>
+                   
                   <td width="30px" align="center" class='<%=color %>'">
                     <bean:write name="kinmuJissekiNyuryokuKakuninList" property="youbi" /><br>
                   </td>
