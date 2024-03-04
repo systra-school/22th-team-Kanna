@@ -117,7 +117,8 @@
               </tr>
             </table>
           </div>
-            <div style="overflow: auto; height: 400px; width: 1088px; margin-left:80px; ">
+          	<%-- widthを微調整 --%>
+            <div style="overflow: auto; height: 400px; width: 1090px; margin-left:80px; ">
             <logic:iterate id="kinmuJissekiNyuryokuKakuninList" name="kinmuJissekiNyuryokuKakuninForm" property="kinmuJissekiNyuryokuKakuninList" indexId="idx">
               <table class="tblBody" border="1" cellpadding="0" cellspacing="0">
                 <tr>
@@ -167,7 +168,8 @@
                   <td width="100px" align="center">
                     <bean:write name="kinmuJissekiNyuryokuKakuninList" property="kyuujitsuTime" /><br>
                   </td>
-                  <td width="220px" align="left">
+                  <%-- alignをleftからcenterに --%>
+                  <td width="220px" align="center">
                   	<%-- レイアウト修正(sizeの値を修正) --%>
                     <html:text style="text-align:left" size="25" name="kinmuJissekiNyuryokuKakuninList" property="bikou" indexed="true"></html:text><br>
                     <%-- <html:text style="text-align:left" size="40" name="kinmuJissekiNyuryokuKakuninList" property="bikou" indexed="true"></html:text><br> --%>
