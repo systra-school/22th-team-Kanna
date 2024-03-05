@@ -68,7 +68,7 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody" style="overflow: hidden;">
+      <div id="gymBody" style="overflow: hidden; height: 600px;">
         <div style="margin-left:10px;">
           <html:form action="/shukkinKibouKakuninInit" >
             ï\é¶îNåéÅF
@@ -83,22 +83,22 @@
             <bean:write name="shukkinKibouKakuninForm" property="cntPage"/>/
             <bean:write name="shukkinKibouKakuninForm" property="maxPage"/>
             <div>
-              <table width="1100px" cellpadding="0" cellspacing="0">
+              <table width="1200px" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="150px" valign="top">
                     <table border="1" cellpadding="0" cellspacing="0">
-                      <tr class="tblHeader">
+                      <tr class="tblHeader"  style="line-height: 20px;">
                         <td width="150px" align="center">
                           &nbsp;
                         </td>
                       </tr>
-                      <tr class="tblHeader">
+                      <tr class="tblHeader"  style="line-height: 20px;">
                         <td width="150px" align="center">
                         é–àıñº
                         </td>
                       </tr>
                       <logic:iterate offset="offset" length="<%=showLength %>" id="shukkinKibouKakuninBeanList" name="shukkinKibouKakuninForm" property="shukkinKibouKakuninBeanList">
-                        <tr class="tblBody">
+                        <tr class="tblBody"  style="line-height: 20px;">
                           <td width="150px" align="center" class="tblBody">
                             <bean:write property="shainName" name="shukkinKibouKakuninBeanList"/><br>
                           </td>
@@ -111,7 +111,7 @@
                     <div style="overflow-x: auto;overflow-y: hidden; width:100%;height: 100%; text-align:center;">
                     <%--<div style="overflow-x: auto;overflow-y: hidden; width:1067px;height: 100%; text-align:center;"> --%>
                       <table border="1" cellpadding="0" cellspacing="0">
-                        <tr class="tblHeader">
+                        <tr class="tblHeader"  style="line-height: 20px;">
                           <td width="40px" align="center" valign="middle">
                             1
                           </td>
@@ -214,7 +214,7 @@
                           </td>
                           <% } %>
                         </tr>
-                        <tr class="tblHeader">
+                        <tr class="tblHeader"  style="line-height: 20px;">
                           <logic:iterate id="dateBeanList" name="shukkinKibouKakuninForm" property="dateBeanList">
                           <bean:define id="youbiEnum" name="dateBeanList" property="youbiEnum"/>
                               <%
@@ -233,7 +233,7 @@
                           </logic:iterate>
                         </tr>
                         <logic:iterate offset="offset"  length="<%=showLength %>" id="shukkinKibouKakuninBeanList" name="shukkinKibouKakuninForm" property="shukkinKibouKakuninBeanList">
-                          <tr class="tblBody">
+                          <tr class="tblBody"  style="line-height: 20px;">
                             <td width="40px" align="center" valign="middle" class="tblBody">
                               <bean:write property="symbol01" name="shukkinKibouKakuninBeanList" />
                             </td>
