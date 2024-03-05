@@ -63,7 +63,7 @@ if (listSize > intShowLength) {
     * 出勤希望日参照(サブウィンドウで開く)
     */
     function view(){
-    	window.open("/")
+    	window.open("/kikin/shukkinKibouKakuninSubInit.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
     }
     --> 
     </script>
@@ -245,7 +245,7 @@ if (listSize > intShowLength) {
                             %>
 
                             <td width="40px" align="center" valign="middle" class="<%=color %>">
-                              <bean:write property="youbi" name="dateBeanList"/><br>
+                              <bean:write property="youbi" name="dateBeanList"/>
                             </td>
                         </logic:iterate>
                       </tr>

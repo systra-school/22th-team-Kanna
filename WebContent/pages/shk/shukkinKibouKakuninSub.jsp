@@ -20,11 +20,21 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 <bean:size id="dateBeanListSize" name="shukkinKibouKakuninForm"  property="dateBeanList"/>
+<bean:size id="listSize" name="shukkinKibouKakuninForm" property="dateBeanList"/>
+<bean:define id="showLength" value="18" type="java.lang.String"/>
 <bean:define id="offset" name="shukkinKibouKakuninForm" property="offset" />
+<bean:define id="color" value="" type="java.lang.String"/>
 <%
-String showLength = "18";
-String color = "";
+final int heightSize = 22;
+
+int intShowLength = Integer.parseInt(showLength);
+
+if (listSize > intShowLength) {
+    listSize = intShowLength;
+}
+
 %>
+
 <html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +64,6 @@ String color = "";
         <table>
           <tr>
             <td id="headLeft">
-              　
             </td>
             <td id="headCenter">
               出勤希望確認
@@ -67,7 +76,7 @@ String color = "";
       </div>
       <div id="gymBody" style="overflow: auto;">
         <div style="margin-left:70px;">
-          <html:form action="/shukkinKibouKakuninInit" >
+          <html:form action="/shukkinKibouKakuninSubInit" >
             表示年月：
             <html:select name="shukkinKibouKakuninForm" property="yearMonth" onchange="submitSearch()">
             <html:optionsCollection name="shukkinKibouKakuninForm"
@@ -84,19 +93,19 @@ String color = "";
                 <tr>
                   <td width="150px" valign="top">
                     <table border="1" cellpadding="0" cellspacing="0">
-                      <tr class="tblHeader" >
-                        <td width="150px" align="center">
+                      <tr height="<%=heightSize %>px" >
+                        <td class="tblHeader"  width="150px" align="center">
                           &nbsp;
                         </td>
                       </tr>
-                      <tr class="tblHeader" >
-                        <td width="150px" align="center">
+                      <tr height="<%=heightSize %>px" >
+                        <td class="tblHeader"  width="150px" align="center">
                         社員名
                         </td>
                       </tr>
                       <logic:iterate offset="offset" length="<%=showLength %>" id="shukkinKibouKakuninBeanList" name="shukkinKibouKakuninForm" property="shukkinKibouKakuninBeanList">
-                        <tr class="tblBody" >
-                          <td width="150px" align="center">
+                        <tr height="<%=heightSize %>px" >
+                          <td class="tblBody" width="150px" align="center">
                             <bean:write property="shainName" name="shukkinKibouKakuninBeanList"/><br>
                           </td>
                         </tr>
@@ -105,8 +114,8 @@ String color = "";
                   </td>
                   <td>
                     <div style="overflow-x: auto;overflow-y: hidden; width:800px;height: 100%; ">
-                      <table border="1" cellpadding="0" cellspacing="0">
-                        <tr class="tblHeader" >
+                      <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
+                        <tr  height="<%=heightSize %>px">
                           <td width="40px" align="center" valign="middle">
                             1
                           </td>
@@ -209,7 +218,7 @@ String color = "";
                           </td>
                           <% } %>
                         </tr>
-                        <tr class="tblHeader" >
+                        <tr class="tblHeader"  height="<%=heightSize %>px">
                           <logic:iterate id="dateBeanList" name="shukkinKibouKakuninForm" property="dateBeanList">
                               <bean:define id="youbi" name="dateBeanList" property="youbi"/>
                               <%
@@ -228,7 +237,8 @@ String color = "";
                           </logic:iterate>
                         </tr>
                         <logic:iterate offset="offset"  length="<%=showLength %>" id="shukkinKibouKakuninBeanList" name="shukkinKibouKakuninForm" property="shukkinKibouKakuninBeanList">
-                          <tr class="tblBody" >
+                         <html:hidden name="shukkinKibouKakuninBeanList" property="registFlg" value="true" indexed="true"/>
+                          <tr class="tblBody"  height="<%=heightSize %>px" >
                             <td width="40px" align="center" valign="middle">
                               <bean:write property="symbol01" name="shukkinKibouKakuninBeanList" />
                             </td>
