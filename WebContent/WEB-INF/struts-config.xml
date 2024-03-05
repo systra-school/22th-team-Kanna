@@ -231,7 +231,16 @@
         <forward name="success"  path="/menu.do"/>
       </action>
       
- <!-- /馬場玲奈 -->          
+ <!-- /馬場玲奈 -->
+ 
+      <!-- 出勤希望日登録（2024/03/04　太田） -->
+      <action
+        path="/shukkinKibouNyuuryokuRegist"
+        type="action.shk.ShukkinKibouNyuuryokuRegistAction"
+        name="shukkinKibouNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/pages/shk/shukkinKibouNyuuryoku.jsp"/>
+      </action>
 
       <!-- 出勤希望日確認初期表示 -->
       <action

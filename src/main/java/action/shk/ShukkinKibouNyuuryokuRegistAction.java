@@ -1,7 +1,12 @@
-/* ファイル名：ShukkinKibouNyuuryokuInitAction.java*/
+/**
+ * ファイル名：ShukkinKibouNyuuryokuRegistAction.java
+ *
+ * 変更履歴
+ * 1.0  2010/09/04 Kazuya.Naraki
+ */
 package action.shk;
 
- import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,15 +34,15 @@ import constant.RequestSessionNameConstant;
 import form.common.DateBean;
 import form.shk.ShukkinKibouNyuuryokuBean;
 import form.shk.ShukkinKibouNyuuryokuForm;
- /**
-  * 説明：出勤希望日入力画面初期表示アクションクラス
-  * @author baba
-  *
-  */
-public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
 
-	/**
-     * 説明：出勤希望日入力画面表示アクションクラス
+/**
+ * 説明：出勤希望日入力登録アクションクラス
+ * @author ota
+ */
+public class ShukkinKibouNyuuryokuRegistAction extends ShukkinKibouAbstractAction{
+
+    /**
+     * 説明：出勤希望日入力登録アクションクラス
      *
      * @param mapping アクションマッピング
      * @param form アクションフォーム
@@ -46,13 +51,12 @@ public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
      * @return アクションフォワード
      * @author naraki
      */
-	
-	public ActionForward execute(ActionMapping mapping, ActionForm form,
+    public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
-		log.info(new Throwable().getStackTrace()[0].getMethodName());
-		
-		// フォワードキー
+
+        log.info(new Throwable().getStackTrace()[0].getMethodName());
+
+        // フォワードキー
         String forward = CommonConstant.SUCCESS;
 
         // セッション
@@ -61,25 +65,33 @@ public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
         // ログインユーザ情報をセッションより取得
         LoginUserDto loginUserDto = (LoginUserDto) session.getAttribute(RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO);
 
-		///フォーム
-        ShukkinKibouNyuuryokuForm shukkinKibouNyuuryokuForm = (ShukkinKibouNyuuryokuForm)form;
-        
+        // フォーム
+        ShukkinKibouNyuuryokuForm shukkinKibouNyuuryokuForm = (ShukkinKibouNyuuryokuForm) form;
+
+        // 画面のリスト情報
+        List<ShukkinKibouNyuuryokuBean> shukkinKibouBeanList = shukkinKibouNyuuryokuForm.getShukkinKibouNyuuryokuBeanList();
+
         // 対象年月
         String yearMonth = CommonUtils.getFisicalDay(CommonConstant.yearMonthNoSl);
-      
-         // 社員ID
-        String shainId = loginUserDto.getShainId();
 
-        		
         // ロジック生成
         ShukkinKibouLogic shukkinKibouLogic = new ShukkinKibouLogic();
 
         // 対象年月の月情報を取得する。
         List<DateBean> dateBeanList = CommonUtils.getDateBeanList(yearMonth);
 
-		  //出勤希望日を取得 
-        List<ShukkinKibouNyuuryokuDto> nyuuryokuDtoList= shukkinKibouLogic.getShukkinKibouNyuuryokuDtoList(shainId,yearMonth);
-        List<ShukkinKibouNyuuryokuBean> shukkinKibouNyuuryokuBeanList = new ArrayList<ShukkinKibouNyuuryokuBean>();
+        // フォームデータをDtoに変換する
+        List<ShukkinKibouNyuuryokuDto> shukkinKibouNyuuryokuDtoList = this.formToDto(shukkinKibouBeanList, dateBeanList);
+
+        // 登録・更新処理
+        shukkinKibouLogic.registKibouShift(shukkinKibouNyuuryokuDtoList, loginUserDto);
+        
+        // 社員ID
+        String shainId = loginUserDto.getShainId();
+		
+        //出勤希望日を取得 
+	    List<ShukkinKibouNyuuryokuDto> nyuuryokuDtoList= shukkinKibouLogic.getShukkinKibouNyuuryokuDtoList(shainId,yearMonth);
+	    List<ShukkinKibouNyuuryokuBean> shukkinKibouNyuuryokuBeanList = new ArrayList<ShukkinKibouNyuuryokuBean>();
 
         // セレクトボックスの取得
         ComboListUtilLogic comboListUtils = new ComboListUtilLogic();
@@ -94,7 +106,6 @@ public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
         	shukkinKibouBean.setShainName(loginUserDto.getShainName());
         	shukkinKibouBean.setRegistFlg(true);
         	shukkinKibouNyuuryokuBeanList.add(shukkinKibouBean);
-//            forward = CommonConstant.NODATA;
         } else {
             // データあり
             shukkinKibouNyuuryokuBeanList = dtoToBean(nyuuryokuDtoList, loginUserDto);
@@ -108,7 +119,7 @@ public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
         shukkinKibouNyuuryokuForm.setYearMonth(yearMonth);
         
         return mapping.findForward(forward);
-	}
+    }
 
     /**
      * DtoからBeanへ変換する
@@ -164,5 +175,77 @@ public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
         shukkinKibouNyuuryokuBeanList.add(shukkinKibouNyuuryokuBean);
 
         return shukkinKibouNyuuryokuBeanList;
+    }
+    
+
+    /**
+     * formからDtoへ変換する
+     * @param shukkinKibouBeanList
+     * @return DtoList
+     * @author naraki
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     * @throws IllegalArgumentException
+     */
+    private List<ShukkinKibouNyuuryokuDto> formToDto(List<ShukkinKibouNyuuryokuBean> shukkinKibouBeanList
+                                                      , List<DateBean> dateBeanList) throws IllegalArgumentException,
+                                                                        IllegalAccessException,
+                                                                        InvocationTargetException {
+        // 戻り値
+    	List<ShukkinKibouNyuuryokuDto> shukkinKibouNyuuryokuDtoList = new ArrayList<ShukkinKibouNyuuryokuDto>();
+//        List<List<ShukkinKibouNyuuryokuDto>> shukkinKibouNyuuryokuDtoListList = new ArrayList<List<ShukkinKibouNyuuryokuDto>>();
+
+    	for (ShukkinKibouNyuuryokuBean shukkinKibouBean : shukkinKibouBeanList) {
+	    	
+//	    	List<ShukkinKibouNyuuryokuDto> shukkinKibouNyuuryokuDtoList = new ArrayList<ShukkinKibouNyuuryokuDto>();
+	
+	        // 登録フラグ
+	        boolean registFlg = shukkinKibouBean.getRegistFlg();
+	
+	        if (!registFlg) {
+	            continue;
+	        }
+	
+	        // メソッドの取得
+	        Method[] methods = shukkinKibouBean.getClass().getMethods();
+	
+	        // ソートを行う
+	        Comparator<Method> asc = new MethodComparator();
+	        Arrays.sort(methods, asc); // 配列をソート
+	
+	        int listSize = dateBeanList.size();
+	
+	        int index = 0;
+	
+	        for (int i = 0; i < methods.length; i++) {
+	            // "getShiftIdXX" のメソッドを動的に実行する
+	            if (methods[i].getName().startsWith("getShiftId") && index < listSize) {
+	                String yearMonthDay = "";
+	
+	                // 対象年月取得
+	                yearMonthDay = dateBeanList.get(index).getYearMonthDay();
+	
+	                ShukkinKibouNyuuryokuDto shukkinKibouNyuuryokuDto = new ShukkinKibouNyuuryokuDto();
+	                String shiftId = (String) methods[i].invoke(shukkinKibouBean);
+	
+	                if (CommonConstant.BLANK_ID.equals(shiftId)) {
+	                    // 空白が選択されている場合
+	                    shiftId = null;
+	                }
+	
+	                shukkinKibouNyuuryokuDto.setKibouShiftId(shiftId);
+	                shukkinKibouNyuuryokuDto.setShainId(shukkinKibouBean.getShainId());
+	                shukkinKibouNyuuryokuDto.setYearMonthDay(yearMonthDay);
+	                shukkinKibouNyuuryokuDtoList.add(shukkinKibouNyuuryokuDto);
+	
+	                index++;
+	            }
+	        }
+	
+//	        shukkinKibouNyuuryokuDtoListList.add(shukkinKibouNyuuryokuDtoList);
+	    	
+    	}
+    	
+        return shukkinKibouNyuuryokuDtoList;
     }
 }

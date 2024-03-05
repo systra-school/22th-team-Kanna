@@ -233,7 +233,7 @@ if (listSize > intShowLength) {
                       </tr>
                       <tr height="<%=heightSize %>px">
                         <logic:iterate id="dateBeanList" name="shukkinKibouNyuuryokuForm" property="dateBeanList">
-                          <bean:define id="youbi" name="dateBeanList" property="youbiEnum"/>
+                          <bean:define id="youbi" name="dateBeanList" property="youbi"/>
                             <%
                             if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
                                 color = "fontBlue";
@@ -243,6 +243,9 @@ if (listSize > intShowLength) {
                                 color = "fontBlack";
                             }
                             %>
+	                      <logic:equal name="dateBeanList" property="shukujitsuFlg" value="true">
+	                      	<% color = "fontRed"; %>
+	                      </logic:equal>
 
                             <td width="40px" align="center" valign="middle" class="<%=color %>">
                               <bean:write property="youbi" name="dateBeanList"/>
