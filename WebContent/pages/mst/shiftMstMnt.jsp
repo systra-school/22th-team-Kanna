@@ -157,7 +157,7 @@
 							property="shiftId" type="java.lang.String" />
 						<tr class="tblBody">
 							<td width="100px" align="center"><html:text
-									property="shiftName" name="shiftMstMntBeanList" size="10"
+									property="shiftName" name="shiftMstMntBeanList" size="8"
 									maxlength="10" indexed="true" /> <html:hidden
 									property="shiftId" name="shiftMstMntBeanList" indexed="true" />
 							</td>
@@ -169,19 +169,19 @@
 								<table width="100%">
 									<tr>
 										<td align="center"><html:text property="startTime"
-												name="shiftMstMntBeanList" size="10" maxlength="5"
+												name="shiftMstMntBeanList" size="5" maxlength="5"
 												indexed="true" />
 										</td>
 										<td align="center">&#xFF5E;</td>
 										<td align="center"><html:text property="endTime"
-												name="shiftMstMntBeanList" size="10" maxlength="5"
+												name="shiftMstMntBeanList" size="5" maxlength="5"
 												indexed="true" />
 										</td>
 									</tr>
 								</table>
 							</td>
 							<td width="100px" align="center"><html:text
-									property="breakTime" name="shiftMstMntBeanList" size="10"
+									property="breakTime" name="shiftMstMntBeanList" size="5"
 									maxlength="5" indexed="true" />
 							</td>
 							<td width="70px" align="center"><html:checkbox
