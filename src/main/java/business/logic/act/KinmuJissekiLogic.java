@@ -12,13 +12,12 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
-import exception.CommonException;
-
 import business.db.dao.act.KinmuJissekiDao;
 import business.dto.LoginUserDto;
 import business.dto.act.KinmuJissekiDto;
 import business.logic.utils.CheckUtils;
 import business.logic.utils.CommonUtils;
+import exception.CommonException;
 
 /**
  * 説明：ログイン処理のロジック
@@ -184,12 +183,10 @@ public class KinmuJissekiLogic {
                 jitsudouTimeS = 0;
             }
 
-            // 秒を60で除算する → 分に変換。
-            long jitsudouTimeM = jitsudouTimeS / 60; // 分
-            // 分を60で除算する → 時に変換。
-            long jitsudouTimeH = jitsudouTimeM / 60; // 時
-            // 分を60で除算したときの余り → 分を算出する。
-            jitsudouTimeM = jitsudouTimeM % 60; // 余りが分になる
+            // 分に変換。
+            long jitsudouTimeM = (jitsudouTimeS % 3600) / 60; // 分
+            // 時に変換。
+            long jitsudouTimeH = jitsudouTimeS / 3600; // 時
 
             // 算出した値を画面へ表示する形式にする hh:mm
             StringBuffer jitsudouTime = new StringBuffer();
@@ -201,6 +198,21 @@ public class KinmuJissekiLogic {
              * 時間外時間算出のために
              * シフトの時間を取得する。
              */
+            
+            if (jitsudouTimeS > 28800) {
+            	long overS = (jitsudouTimeS - 28800);
+            	
+            	// 分に変換。
+                long overM = (overS % 3600) / 60; // 分
+                // 時に変換。
+                long overH = overS / 3600; // 時
+                StringBuffer jikangaiTime = new StringBuffer();
+                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(overH), 2));
+                jikangaiTime.append(colon);
+                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(overM), 2));
+                
+                kinmuJissekiDto.setJikangaiTime(jikangaiTime.toString());
+            }
             String startTimeShift = kinmuJissekiDto.getStartTimeShift();
             String endTimeShift = kinmuJissekiDto.getEndTimeShift();
             String breakTimeShift = kinmuJissekiDto.getBreakTimeShift();
@@ -215,6 +227,9 @@ public class KinmuJissekiLogic {
                 // 実働時間を勤務実績Dtoの勤務実績へセット
                 kinmuJissekiDto.setJitsudouTime(jitsudouTime.toString());
             }
+            
+
+            
         }
     }
 }
