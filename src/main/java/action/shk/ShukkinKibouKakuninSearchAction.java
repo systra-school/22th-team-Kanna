@@ -121,58 +121,72 @@ public class ShukkinKibouKakuninSearchAction extends ShukkinKibouAbstractAction{
      * @throws IllegalArgumentException
      */
     private List<ShukkinKibouKakuninBean> dtoToBean(List<List<ShukkinKibouKakuninDto>> kakuninDtoListList
-                                                      , LoginUserDto loginUserDto)
-                                                                        throws IllegalArgumentException,
-                                                                        IllegalAccessException,
-                                                                        InvocationTargetException {
-        List<ShukkinKibouKakuninBean> shukkinKibouKakuninBeanList = new ArrayList<ShukkinKibouKakuninBean>();
-
-        // 社員分のループ
-        for (List<ShukkinKibouKakuninDto> kakuninDtoList :  kakuninDtoListList) {
-
-            // 実行するオブジェクトの生成
-            ShukkinKibouKakuninBean shukkinKibouKakuninBean = new ShukkinKibouKakuninBean();
-
-            // メソッドの取得
-            Method[] methods = shukkinKibouKakuninBean.getClass().getMethods();
-
-            // ソートを行う
-            Comparator<Method> asc = new MethodComparator();
-            Arrays.sort(methods, asc); // 配列をソート
-
-            // 社員名
-            String shainId = "";
-            String shainName = "";
-
-            int index = 0;
-            for (int i = 0; i < methods.length; i++) {
-                // "setShiftIdXX" のメソッドを動的に実行する
-                if (methods[i].getName().startsWith("setSymbol")) {
-                    if (index < kakuninDtoList.size()) {
-                        // Dtoのリストのサイズ以上のとき
-                        ShukkinKibouKakuninDto kibouKakuninDto = kakuninDtoList.get(index);
-
-                        shainId = kibouKakuninDto.getShainId();
-                        shainName = kibouKakuninDto.getShainName();
-
-                        methods[i].invoke(shukkinKibouKakuninBean, kibouKakuninDto.getKibouShiftSymbol());
-
-                    } else {
-                        // データなしの場合はハイフン
-                        methods[i].invoke(shukkinKibouKakuninBean, "-");
-                    }
-
-                    index ++;
-                }
-            }
-
-            // 社員ID、名前をセット
-            shukkinKibouKakuninBean.setShainId(shainId);
-            shukkinKibouKakuninBean.setShainName(shainName);
-
-            shukkinKibouKakuninBeanList.add(shukkinKibouKakuninBean);
-        }
-
-        return shukkinKibouKakuninBeanList;
-    }
+            , LoginUserDto loginUserDto)
+                              throws IllegalArgumentException,
+                              IllegalAccessException,
+                              InvocationTargetException {
+		List<ShukkinKibouKakuninBean> shukkinKibouKakuninBeanList = new ArrayList<ShukkinKibouKakuninBean>();
+		
+		// 社員分のループ
+		for (List<ShukkinKibouKakuninDto> kakuninDtoList :  kakuninDtoListList) {
+			
+			// 実行するオブジェクトの生成
+			ShukkinKibouKakuninBean shukkinKibouKakuninBean = new ShukkinKibouKakuninBean();
+			
+			// メソッドの取得
+			Method[] methods = shukkinKibouKakuninBean.getClass().getMethods();
+			
+			// ソートを行う
+			Comparator<Method> asc = new MethodComparator();
+			Arrays.sort(methods, asc); // 配列をソート
+			
+			// 社員名
+			String shainId = "";
+			String shainName = "";
+			
+			int index = 0;
+			int indexTmp = 1;
+			for (int i = 0; i < methods.length; i++) {
+				// "setSymbolXX" のメソッドを動的に実行する
+				if (methods[i].getName().startsWith("setSymbol")) {
+					if (index < kakuninDtoList.size()) {
+						// Dtoのリストのサイズ以上のとき
+						ShukkinKibouKakuninDto kibouKakuninDto = kakuninDtoList.get(index);
+						
+						shainId = kibouKakuninDto.getShainId();
+						shainName = kibouKakuninDto.getShainName();
+						
+						String flugStr = kibouKakuninDto.getYearMonthDay();
+						if(flugStr != null) {
+						int flugNum = Integer.parseInt(flugStr.substring(6, 8));
+						if(flugNum == indexTmp) {
+						methods[i].invoke(shukkinKibouKakuninBean, kibouKakuninDto.getKibouShiftSymbol());                        	
+					} else {
+						// データなしの場合はハイフン
+						methods[i].invoke(shukkinKibouKakuninBean, "-");
+						index--;
+					}
+				} else {
+					// データなしの場合はハイフン
+					methods[i].invoke(shukkinKibouKakuninBean, "-");
+					}
+				} else {
+					// データなしの場合はハイフン
+					methods[i].invoke(shukkinKibouKakuninBean, "-");
+				}
+				
+				index++;
+				indexTmp++;
+				}
+			}
+			
+			// 社員ID、名前をセット
+			shukkinKibouKakuninBean.setShainId(shainId);
+			shukkinKibouKakuninBean.setShainName(shainName);
+			
+			shukkinKibouKakuninBeanList.add(shukkinKibouKakuninBean);
+		}
+		
+		return shukkinKibouKakuninBeanList;
+	}
 }
