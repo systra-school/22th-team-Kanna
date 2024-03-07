@@ -52,7 +52,12 @@ if (listSize > intShowLength) {
         // サブミット
         doSubmit('/kikin/shukkinKibouNyuuryokuRegist.do');
     }
-
+    /**
+     * 検索
+     */
+    function submitSearch() {
+        doSubmit('/kikin/shukkinKibouNyuuryokuSearch.do');
+    }
     /**
      * サブウィンドウを開く
      */
@@ -257,6 +262,7 @@ if (listSize > intShowLength) {
                         <tr height="<%=heightSize %>px">
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId01" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -265,6 +271,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId02" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -273,6 +280,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId03" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -281,6 +289,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId04" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -289,6 +298,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId05" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -297,6 +307,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId06" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -305,6 +316,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId07" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -313,6 +325,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId08" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -321,6 +334,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId09" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -329,6 +343,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId10" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -337,6 +352,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId11" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -345,6 +361,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId12" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -353,6 +370,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId13" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -361,6 +379,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId14" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -369,6 +388,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId15" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -377,6 +397,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId16" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -385,6 +406,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId17" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -393,6 +415,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId18" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -401,6 +424,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId19" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -409,6 +433,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId20" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -417,6 +442,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId21" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -425,6 +451,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId22" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -433,6 +460,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId23" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -441,6 +469,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId24" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -449,6 +478,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId25" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -457,6 +487,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId26" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -465,6 +496,7 @@ if (listSize > intShowLength) {
                           </td>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId27" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -474,6 +506,7 @@ if (listSize > intShowLength) {
                           <% if (dateBeanListSize >= 28) { %>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId28" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -484,6 +517,7 @@ if (listSize > intShowLength) {
                           <% if (dateBeanListSize >= 29) { %>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId29" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -494,6 +528,7 @@ if (listSize > intShowLength) {
                           <% if (dateBeanListSize >= 30) { %>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId30" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
@@ -504,6 +539,7 @@ if (listSize > intShowLength) {
                           <% if (dateBeanListSize >= 31) { %>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId31" name="shukkinKibouNyuuryokuBeanList" indexed="true">
+                            <option value="null"></option>
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
                                                     property="shiftCmbMap"
                                                     value="key"
