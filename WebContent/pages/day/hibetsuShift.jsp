@@ -2,6 +2,9 @@
 <%@page import="business.logic.utils.CheckUtils"%>
 <%@page import="form.common.DateBean"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="form.shk.ShukkinKibouKakuninForm"%>
 <%
 /**
@@ -38,7 +41,26 @@
         bodyLeftDivHeight = 402;
     }
 
-
+    // 本日の日付を取得
+    Date dateToday = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    String today = dateFormat.format(dateToday);
+    
+    // 月末を取得
+    Calendar cal = Calendar.getInstance();
+    int thisYear = cal.get(Calendar.YEAR);
+    int thisMonth = cal.get(Calendar.MONTH);
+    int threeMonthLater = thisMonth + 3;
+    cal.set(Calendar.YEAR, thisYear);
+    cal.set(Calendar.MONTH, threeMonthLater);
+    int lastDay = cal.getActualMaximum(Calendar.DATE);
+    String lastDayStr = "";
+    if((threeMonthLater + 1) < 10){
+    	lastDayStr = thisYear + "/0" + (threeMonthLater + 1) + "/" + lastDay;
+    }else{
+    	lastDayStr = thisYear + "/" + (threeMonthLater + 1) + "/" + lastDay;
+    }
+    System.out.println(lastDayStr);
 %>
 
 <html>
@@ -94,9 +116,13 @@
           <html:form>
             <div style="height: 20px">
               表示年月：
-              <html:link href="/kikin/hibetsuShiftPage.do?paging=back">前日</html:link>
+              <logic:notEqual name="hibetsuShiftForm" property="yearMonthDayDisp" value="<%= today %>">
+              	<html:link href="/kikin/hibetsuShiftPage.do?paging=back">前日</html:link>
+              </logic:notEqual>
               <bean:write name="hibetsuShiftForm" property="yearMonthDayDisp"/>
-              <html:link href="/kikin/hibetsuShiftPage.do?paging=next">翌日</html:link>
+              <logic:notEqual name="hibetsuShiftForm" property="yearMonthDayDisp" value="<%= lastDayStr %>">
+              	<html:link href="/kikin/hibetsuShiftPage.do?paging=next">翌日</html:link>
+              </logic:notEqual>
             </div>
             <table border="0" cellpadding="0" cellspacing="0">
               <tr>
