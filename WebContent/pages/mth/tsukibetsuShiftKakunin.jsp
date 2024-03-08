@@ -108,8 +108,12 @@ if (listSize > intShowLength) {
                                       value="key"
                                       label="value"/>
               </html:select>
-              <html:link href="/kikin/tsukibetsuShiftKakuninPage.do?paging=back">‘O‚Ö</html:link>
-              <html:link href="/kikin/tsukibetsuShiftKakuninPage.do?paging=next">ŽŸ‚Ö</html:link>
+              <logic:notEqual name="tsukibetsuShiftKakuninForm" property="cntPage" value="1">
+	              <html:link href="/kikin/tsukibetsuShiftKakuninPage.do?paging=back">‘O‚Ö</html:link>
+              </logic:notEqual>
+              <logic:notEqual name="tsukibetsuShiftKakuninForm" property="cntPage" value="<%= maxPage.toString() %>">
+              		<html:link href="/kikin/tsukibetsuShiftKakuninPage.do?paging=next">ŽŸ‚Ö</html:link>
+              </logic:notEqual>
               <bean:write name="tsukibetsuShiftKakuninForm" property="cntPage"/>/
               <bean:write name="tsukibetsuShiftKakuninForm" property="maxPage"/>
             </div>

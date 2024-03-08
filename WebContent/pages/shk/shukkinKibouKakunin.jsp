@@ -23,6 +23,7 @@
 <bean:define id="offset" name="shukkinKibouKakuninForm" property="offset" />
 <bean:define id="color" value="" type="java.lang.String"/>
 <bean:define id="showLength" value="18" type="java.lang.String"/>
+<bean:define id="maxPage"><bean:write name="shukkinKibouKakuninForm" property="maxPage"/></bean:define><%-- 表示年月用に追加（2024/03/07）--%>
 <html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
@@ -78,8 +79,13 @@
                                     value="key"
                                     label="value"/>
             </html:select>
-            <html:link href="/kikin/shukkinKibouKakuninPage.do?paging=back">前へ</html:link>
-            <html:link href="/kikin/shukkinKibouKakuninPage.do?paging=next">次へ</html:link>
+            <logic:notEqual name="shukkinKibouKakuninForm" property="cntPage" value="1">
+            	<html:link href="/kikin/shukkinKibouKakuninPage.do?paging=back">前へ</html:link>
+            </logic:notEqual>
+            <logic:notEqual name="shukkinKibouKakuninForm" property="cntPage" value="<%= maxPage %>">
+            	<html:link href="/kikin/shukkinKibouKakuninPage.do?paging=next">次へ</html:link>
+            </logic:notEqual>
+            <%-- 「前へ」と「次へ」の表示条件を追加（2024/03/07） --%>
             <bean:write name="shukkinKibouKakuninForm" property="cntPage"/>/
             <bean:write name="shukkinKibouKakuninForm" property="maxPage"/>
             <div>
