@@ -199,20 +199,7 @@ public class KinmuJissekiLogic {
              * シフトの時間を取得する。
              */
             
-            if (jitsudouTimeS > 28800) {
-            	long overS = (jitsudouTimeS - 28800);
-            	
-            	// 分に変換。
-                long overM = (overS % 3600) / 60; // 分
-                // 時に変換。
-                long overH = overS / 3600; // 時
-                StringBuffer jikangaiTime = new StringBuffer();
-                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(overH), 2));
-                jikangaiTime.append(colon);
-                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(overM), 2));
-                
-                kinmuJissekiDto.setJikangaiTime(jikangaiTime.toString());
-            }
+            
             String startTimeShift = kinmuJissekiDto.getStartTimeShift();
             String endTimeShift = kinmuJissekiDto.getEndTimeShift();
             String breakTimeShift = kinmuJissekiDto.getBreakTimeShift();
@@ -226,6 +213,20 @@ public class KinmuJissekiLogic {
 
                 // 実働時間を勤務実績Dtoの勤務実績へセット
                 kinmuJissekiDto.setJitsudouTime(jitsudouTime.toString());
+            }
+            if (jitsudouTimeS > 28800) {
+            	long overS = (jitsudouTimeS - 28800);
+            	
+            	// 分に変換。
+                long overM = (overS % 3600) / 60; // 分
+                // 時に変換。
+                long overH = overS / 3600; // 時
+                StringBuffer jikangaiTime = new StringBuffer();
+                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(overH), 2));
+                jikangaiTime.append(colon);
+                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(overM), 2));
+                
+                kinmuJissekiDto.setJikangaiTime(jikangaiTime.toString());
             }
             
 
