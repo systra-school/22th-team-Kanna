@@ -21,14 +21,14 @@
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="wrapper">
+    <div id="wrapper1">
       <div id="header">
         <table>
           <tr>
             <td id="headLeft">
               　
             </td>
-            <td id="headCenter">
+            <td id="headCenter1">
             <logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
                          property="kengenId"
                          value="<%=CommonConstant.Kengen.KANRISYA.getId() %>">
@@ -42,53 +42,54 @@
             </logic:equal>
             </td>
             <td id="headRight">
-              <input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
+              <input value="ログアウト" type="button" class="smlButton ui-btn"  onclick="logout()" />
             </td>
           </tr>
         </table>
       </div>
-      <div id="gymBody">
+      <div id="gymBodyMenu">
         <logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
                      property="kengenId"
                      value="<%=CommonConstant.Kengen.KANRISYA.getId() %>">
           <div class="menuBlock">
             <html:form action="/tsukibetsuShiftKakuninInit">
-              <input type="submit" value="月別シフト確認" class="bigButton" />
+            <span><input type="submit" value="月別シフト確認" class="bigButton" /></span>
             </html:form>
             <html:form action="/hibetsuShiftInit">
-              <input type="submit" value="日別シフト確認" class="bigButton" />
+              <span><input type="submit" value="日別シフト確認" class="bigButton" /></span>
             </html:form>
           </div>
 
           <div class="menuBlock">
             <html:form action="/kinmuJissekiKakuninInit">
-              <input type="submit" value="勤務実績確認" class="bigButton" />
+              <span><input type="submit" value="勤務実績確認" class="bigButton" /></span>
             </html:form>
             <html:form action="/kinmuJissekiNyuryokuKakuninInit">
-              <input type="submit" value="勤務実績入力" class="bigButton" />
+              <span><input type="submit" value="勤務実績入力" class="bigButton" /></span>
             </html:form>
           </div>
 
           <div class="menuBlock">
             <html:form action="/shukkinKibouKakuninInit">
-              <input type="submit" value="出勤希望日確認" class="bigButton" />
+              <span><input type="submit" value="出勤希望日確認" class="bigButton" /></span>
             </html:form>
             <html:form action="/tsukibetsuShiftNyuuryokuInit">
-              <input type="submit" value="月別シフト入力" class="bigButton" />
+              <span><input type="submit" value="月別シフト入力" class="bigButton" /></span>
             </html:form>
           </div>
 
 
           <div class="menuBlock">
             <html:form action="/shainMstMnt">
-              <input type="submit" value="社員マスタメンテナンス" class="bigButton" />
+              <span><input type="submit" value="社員マスタメンテナンス" class="bigButton" /></span>
             </html:form>
             <html:form action="/shiftMstMnt">
-              <input type="submit" value="シフトマスタメンテナンス" class="bigButton" />
+              <span><input type="submit" value="シフトマスタメンテナンス" class="bigButton" /></span>
             </html:form>
             <html:form action="/kihonShiftInit">
-              <input type="submit" value="基本シフト登録" class="bigButton" />
+              <span><input type="submit" value="基本シフト登録" class="bigButton" /></span>
             </html:form>
+           
           </div>
 
         </logic:equal>
@@ -98,32 +99,37 @@
                      value="<%=CommonConstant.Kengen.IPPAN.getId() %>">
           <div class="menuBlock">
             <html:form action="/tsukibetsuShiftKakuninInit">
-              <input type="submit" value="月別シフト確認" class="bigButton" />
+              <span><input type="submit" value="月別シフト確認" class="bigButton" /></span>
             </html:form>
             <html:form action="/hibetsuShiftInit">
-              <input type="submit" value="日別シフト確認" class="bigButton" />
+              <span><input type="submit" value="日別シフト確認" class="bigButton" /></span>
             </html:form>
           </div>
           <div class="menuBlock">
             <html:form action="/kinmuJissekiNyuryokuKakuninInit">
-              <input type="submit" value="勤務実績入力" class="bigButton" />
+              <span><input type="submit" value="勤務実績入力" class="bigButton" /></span>
             </html:form>
           </div>
 
           <div class="menuBlock">
 			 <html:form action="/shukkinKibouNyuuryokuInit">
-           	  <input type="submit" value="希望出勤日入力" class="bigButton" />
+           	  <span><input type="submit" value="希望出勤日入力" class="bigButton" /></span>
             </html:form>
           </div>
 
           <div class="menuBlock">
             <html:form action="/kihonShiftKakuninInit">
-              <input type="submit" value="基本シフト確認" class="bigButton" />
+              <span><input type="submit" value="基本シフト確認" class="bigButton" /></span>
             </html:form>
           </div>
 
         </logic:equal>
       </div>
+       <div class="menuBlock3">
+          <div class="fuwafuwa">
+              <img src="pages/cmn/img/kairyu2.png">
+              </div>
+          </div>
       <div id="footer">
         <table>
           <tr>
