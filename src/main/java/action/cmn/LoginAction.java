@@ -51,7 +51,8 @@ public class LoginAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest req, HttpServletResponse res) throws Exception {
         log.info(new Throwable().getStackTrace()[0].getMethodName());
-
+        
+        
         // セッションa
         HttpSession session = req.getSession();
 
@@ -87,7 +88,9 @@ public class LoginAction extends Action {
 
             forward = CommonConstant.SUCCESS;
         }
-
+      //ドラゴンを動かすためにスリープ
+        Thread.sleep(2000);
+        
         return mapping.findForward(forward);
     }
 
