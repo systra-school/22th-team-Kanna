@@ -47,7 +47,6 @@ if (listSize > intShowLength) {
 int dateCount = dateBeanListSize + 1;
 
 %>
-
 <%@ include file="../header.jsp" %>
 <%-- ƒwƒbƒ_[‚Ì“Çž --%>
 		

@@ -95,6 +95,7 @@ if (listSize > intShowLength) {
     <title>月別シフト入力画面</title>
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/tsukibetsu.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="tukibetsu tukibetsuNyuuryoku">
     <div id="wrapper">
@@ -117,7 +118,7 @@ if (listSize > intShowLength) {
       	<%-- 画面遷移エラーを修正（formのactionの値を変更）2024/02/23　太田 --%>
         <html:form action="/tsukibetsuShiftNyuuryokuInit" >
           <div style="margin-left:50px;">
-            <div style="height: 25px;">
+            <div class="paging" style="height: 25px;">
               表示年月：
               <bean:define id="sessionYearMonth" name="tsukibetsuShiftNyuuryokuForm" property="yearMonth" type="String"/>
               <html:select property="yearMonth" name="tsukibetsuShiftNyuuryokuForm"  onchange="submitSearch()">
@@ -127,10 +128,10 @@ if (listSize > intShowLength) {
                                       label="value"/>
               </html:select>
               <logic:notEqual name="tsukibetsuShiftNyuuryokuForm" property="cntPage" value="1">
-              		<html:link href="/kikin/tsukibetsuShiftNyuuryokuPage.do?paging=back">前へ</html:link>
+              		<html:link href="/kikin/tsukibetsuShiftNyuuryokuPage.do?paging=back" style="color: #fff;">前へ</html:link>
               </logic:notEqual>
               <logic:notEqual name="tsukibetsuShiftNyuuryokuForm" property="cntPage" value="<%= maxPage.toString() %>">
-              		<html:link href="/kikin/tsukibetsuShiftNyuuryokuPage.do?paging=next">次へ</html:link>
+              		<html:link href="/kikin/tsukibetsuShiftNyuuryokuPage.do?paging=next" style="color: #fff;">次へ</html:link>
               </logic:notEqual>
               <bean:write name="tsukibetsuShiftNyuuryokuForm" property="cntPage"/>/
               <bean:write name="tsukibetsuShiftNyuuryokuForm" property="maxPage"/>
@@ -555,7 +556,7 @@ if (listSize > intShowLength) {
           </div>
         </html:form>
       </div>
-        <div class="hanei">
+        <div style="widht: 100%; padding-left: 50px;">
           <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
           <input value="基本シフト反映" type="button" class="lngButton"  onclick="submitKihonShift()" /><%-- onclick属性を追加（2024/02/23　太田） --%>
           <input value="出勤希望日反映" type="button" class="lngButton"  onclick="submitShukkinKibou()" />
