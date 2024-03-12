@@ -1,31 +1,33 @@
-.ctrl_area {
+.kinmuzisseki_kakunin .ctrl_area {
 	display: flex;
     justify-content: space-between;
     margin-bottom: 6px;
 }
 
 /* table */
-table {
+.kinmuzisseki_kakunin table {
 	width: 100%;
 	border-spacing: 0;
 	border-top: 1px solid #252525;
 	border-left: 1px solid #252525;
 }
-th, td {
+.kinmuzisseki_kakunin th,
+.kinmuzisseki_kakunin td {
 	padding: 0;
 	text-align: center;
 	white-space: nowrap;
 	border-right: 1px solid #252525;
 	border-bottom: 1px solid #252525;
 }
-thead, tbody {
+.kinmuzisseki_kakunin thead,
+.kinmuzisseki_kakunin tbody {
 	display: block;
     overflow-y: scroll;
 }
-tbody {
+.kinmuzisseki_kakunin tbody {
 	height: 400px;
 }
-tr {
+.kinmuzisseki_kakunin tr {
 	display: flex;
 }
 .w30 {

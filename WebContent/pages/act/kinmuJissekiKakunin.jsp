@@ -25,7 +25,7 @@ String color = "";
 <%@ include file="../header.jsp" %>
 <%-- ƒwƒbƒ_[‚Ì“Çž --%>
 
-<main class="formStyle">
+<main class="formStyle kinmuzisseki_kakunin">
 	<html:form action="/shainMstMntRegist" >
 	<div class="ctrl_area">
 		<div class="paging">
