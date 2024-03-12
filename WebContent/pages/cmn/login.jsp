@@ -36,8 +36,19 @@
 		      <br/>
 		      <html:password property="password" size="16" redisplay="false" value="sh0001" style="width: 250px; height: 35px; margin-top: 30px; border-radius: 5px; position: relative; z-index: 20;"/>
 		      <br/>
-		      <%-- エラーメッセージを表示 --%>
-		      ${error}
+		       <%-- エラーメッセージを表示 --%>
+		      <%
+		      String errorMsg =(String) session.getAttribute("error");
+		      if (errorMsg != null && !errorMsg.isEmpty()) {
+		      %>
+		      <script>
+		      showMessage('E-MSG-000002', 'errorMessage');
+		      </script>
+		      <%
+		      // エラーメッセージをクリア
+		      session.removeAttribute("error");
+		      }
+		      %>
 		      <br/>
 		      <div style="width: 250px; padding-top: 20px;">
 			      <html:submit onclick="audio()" styleId="start" property="submit" value="送信" style="width: 70px; height: 35px; border-radius: 5px; position: relative; z-index: 20;" />
