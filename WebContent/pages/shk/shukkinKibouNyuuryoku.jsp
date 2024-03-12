@@ -74,7 +74,7 @@ if (listSize > intShowLength) {
     </script>
     <title>èoãŒäÛñ]ì¸óÕâÊñ </title>
 
-    <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/syukkinkibou.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="shk_nyuuryoku">
     <div id="wrapper">
@@ -562,6 +562,7 @@ if (listSize > intShowLength) {
         </div>
       </div>
       <div id="footer">
+       
         <table>
           <tr>
             <td id="footLeft"></td>
@@ -571,8 +572,11 @@ if (listSize > intShowLength) {
               <input value="ìoò^" type="button" class="smlButton"  onclick="submitRegist()" />
             </td>
           </tr>
+          
         </table>
+        <div class="slideinBottom"><img src="pages/cmn/img/kairyu3.png"></div>
       </div>
      </div>
+  
   </body>
 </html>
