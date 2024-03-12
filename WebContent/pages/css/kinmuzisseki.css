@@ -1,3 +1,47 @@
+.ctrl_area {
+	display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+/* table */
+table {
+	width: 100%;
+	border-spacing: 0;
+	border-top: 1px solid #252525;
+	border-left: 1px solid #252525;
+}
+th, td {
+	padding: 0;
+	text-align: center;
+	white-space: nowrap;
+	border-right: 1px solid #252525;
+	border-bottom: 1px solid #252525;
+}
+thead, tbody {
+	display: block;
+    overflow-y: scroll;
+}
+tbody {
+	height: 400px;
+}
+tr {
+	display: flex;
+}
+.w30 {
+    flex-basis: 4%;
+}
+.w50 {
+	flex-basis: 8%;
+}
+.w100 {
+	flex-basis: 10%;
+}
+.w150 {
+	flex-basis: 20%;
+}
+
+
 /*
 * body定義
 */
@@ -7,6 +51,7 @@ body {
     overflow: hidden;
      background: url(../../pages/cmn/img/momizi.png) no-repeat;
      background-size: cover;
+     overflow: hidden !important;
 }
 errorbody {
     background-color: red;

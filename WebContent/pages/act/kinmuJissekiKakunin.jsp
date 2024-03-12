@@ -14,181 +14,103 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+
+<bean:define id="pageTitle" value="勤務実績確認" type="java.lang.String"/>
+<bean:define id="pageName" value="kinmuzisseki" type="java.lang.String"/>
+
 <%
 String color = "";
 %>
-<html>
-  <head>
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
-    <script type="text/javascript" src="/kikin/pages/js/common.js"></script>
-    <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
-    <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
-    <script type="text/javascript" language="Javascript1.1">
-    <!--
 
-    /**
-     * 検索
-     */
-    function submitSearch() {
-        doSubmit('/kikin/kinmuJissekiKakuninSearch.do');
-    }
-    -->
-    </script>
-    <title>勤務実績確認画面</title>
+<%@ include file="../header.jsp" %>
+<%-- ヘッダーの読込 --%>
 
-    <link href="/kikin/pages/css/kinmuzisseki.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div id="wrapper">
-      <div id="header">
-        <table width="100%">
-          <tr>
-            <td id="headLeft">
-              <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/kinmuJissekiKakuninBack.do')" />
-            </td>
-            <td id="headCenter">
-              勤務実績確認
-            </td>
-            <td id="headRight">
-              <input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div id="gymBody">
-       <div class="moziColor">
-        <html:form action="/shainMstMntRegist" >
-          <div style="float: left; width: 100%;">
-            <div style="float: left; width: 844px; text-align: left; margin-left:100px;">
-              表示年月：
-              <html:select name="kinmuJissekiKakuninForm" property="yearMonth" onchange="submitSearch()">
-              <html:optionsCollection name="kinmuJissekiKakuninForm"
-                                      property="yearMonthCmbMap"
-                                      value="key"
-                                      label="value"/>
-              </html:select>
-            </div>
-            <div style="float: left; width: 244px; text-align: left;">
-              社員名：
-              <html:select name="kinmuJissekiKakuninForm" property="shainId" onchange="submitSearch()">
-              <html:optionsCollection name="kinmuJissekiKakuninForm"
-                                      property="shainCmbMap"
-                                      value="key"
-                                      label="value"/>
-              </html:select>
-            </div>
-          </div>
-         </div> 
-          <div style="width: 1088px; margin-left:100px;">
-            <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
-              <tr>
-                <td width="50px" align="center">
-                  日付
-                </td>
-                <td width="30px" align="center">
-                  曜
-                </td>
-                <td width="50px" align="center">
-                  シフト
-                </td>
-                <td width="100px" align="center">
-                  開始時刻
-                </td>
-                <td width="100px" align="center">
-                  終了時刻
-                </td>
-                <td width="100px" align="center">
-                  休憩
-                </td>
-                <td width="100px" align="center">
-                  実働時間
-                </td>
-                <td width="100px" align="center">
-                  時間外
-                </td>
-                <td width="100px" align="center">
-                  休日
-                </td>
-                <td width="320px" align="center">
-                  備考
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div style="overflow: auto; height: 400px; width: 1088px; margin-left:100px;" >
-            <logic:iterate id="kinmuJissekiNyuryokuKakuninList" name="kinmuJissekiKakuninForm" property="kinmuJissekiNyuryokuKakuninList" indexId="idx">
-              <table class="tblBody" border="1" cellpadding="0" cellspacing="0">
-                <tr>
-                  <html:hidden name="kinmuJissekiNyuryokuKakuninList" property="shainId" />
-                  <td width="50px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="kadouDayDisp" /><br>
-                  </td>
-                  <bean:define id="youbi" name="kinmuJissekiNyuryokuKakuninList" property="youbi"/>
-
-                  <%
-                  if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
-                      color = "fontBlue";
-                  } else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi)) {
-                      color = "fontRed";
-                  } else {
-                      color = "fontBlack";
-                  }
-                  %>
- 				<logic:equal name="kinmuJissekiNyuryokuKakuninList" property="shukujitsuFlg" value="true">
-                      	<% color = "fontRed"; %>
-                </logic:equal>
-                   
-                  <td width="30px" align="center" class='<%=color %>'">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="youbi" /><br>
-                  </td>
-                  <td width="50px" align="center" style="vertical-align: middle;">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="symbol" /><br>
-                  </td>
-                  <td width="100px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="startTime" /><br>
-                  </td>
-                  <td width="100px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="endTime" /><br>
-                  </td>
-                  <td width="100px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="breakTime" /><br>
-                  </td>
-                  <td width="100px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="jitsudouTime" /><br>
-                  </td>
-                  <td width="100px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="jikangaiTime" /><br>
-                  </td>
-                  <td width="100px" align="center">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="kyuujitsuTime" /><br>
-                  </td>
-                  <td width="320px" align="left">
-                    <bean:write name="kinmuJissekiNyuryokuKakuninList" property="bikou" /><br>
-                  </td>
-                </tr>
-              </table>
-            </logic:iterate>
-          </div>
-      </html:form>
-    </div>
-    <div id="footer">
-        <table>
-          <tr>
-              <td id="footLeft">
-                　
-              </td>
-              <td id="footCenter">
-                　
-              </td>
-              <td id="footRight">
-                　
-              </td>
-          </tr>
-        </table>
-    </div>
-  </div>
+<main class="formStyle">
+	<html:form action="/shainMstMntRegist" >
+	<div class="ctrl_area">
+		<div class="paging">
+			<span class="moziColor">表示年月：</span>
+			<html:select name="kinmuJissekiKakuninForm" property="yearMonth" onchange="submitSearch()">
+			<html:optionsCollection name="kinmuJissekiKakuninForm"
+			                        property="yearMonthCmbMap"
+			                        value="key"
+			                        label="value"/>
+			</html:select>
+		</div><%-- paging --%>
+		
+		<div class="member">
+			<span class="moziColor">社員名：</span>
+			<html:select name="kinmuJissekiKakuninForm" property="shainId" onchange="submitSearch()">
+			<html:optionsCollection name="kinmuJissekiKakuninForm"
+			                        property="shainCmbMap"
+			                        value="key"
+			                        label="value"/>
+			</html:select>
+		</div><%-- member --%>
+	</div> <%-- ctrl_area --%>
+	
+<table>
+	<thead class="tblHeader">
+		<tr>
+			<th class="w50">日付</th>
+			<th class="w30">曜</th>
+			<th class="w50">シフト</th>
+			<th class="w100">開始時刻</th>
+			<th class="w100">終了時刻</th>
+			<th class="w100">休憩</th>
+			<th class="w100">実働時間</th>
+			<th class="w100">時間外</th>
+			<th class="w100">休日</th>
+			<th class="w150">備考</th>
+		</tr>
+	</thead>
+	<tbody class="tblBody">
+		<logic:iterate id="kinmuJissekiNyuryokuKakuninList" name="kinmuJissekiKakuninForm" property="kinmuJissekiNyuryokuKakuninList" indexId="idx">
+		<tr>
+			<html:hidden name="kinmuJissekiNyuryokuKakuninList" property="shainId" />
+			<td class="w50"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="kadouDayDisp" /></td>
+			
+			<bean:define id="youbi" name="kinmuJissekiNyuryokuKakuninList" property="youbi"/>
+			<%
+			if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
+				color = "fontBlue";
+			} else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi)) {
+				color = "fontRed";
+			} else {
+				color = "fontBlack";
+			}
+			%>
+			<logic:equal name="kinmuJissekiNyuryokuKakuninList" property="shukujitsuFlg" value="true">
+			<% color = "fontRed"; %>
+			</logic:equal>
+			<td class="w30" class="<%=color %>"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="youbi" /></td>
+			
+			<td class="w50"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="symbol" /></td>
+			<td class="w100"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="startTime" /></td>
+			<td class="w100"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="endTime" /></td>
+			<td class="w100"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="breakTime" /></td>
+			<td class="w100"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="jitsudouTime" /></td>
+			<td class="w100"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="jikangaiTime" /></td>
+			<td class="w100"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="kyuujitsuTime" /></td>
+			<td class="w150"><bean:write name="kinmuJissekiNyuryokuKakuninList" property="bikou" /></td>
+		</tr>
+		</logic:iterate>
+	</tbody>
+</table>
+</html:form>
+</main>
+</div><%-- wrapper --%>
+  
+<script type="text/javascript">
+<!--
+/**
+ * 検索
+ */
+function submitSearch() {
+    doSubmit('/kikin/kinmuJissekiKakuninSearch.do');
+}
+-->
+</script>
    <script src="main.js">
    window.addEventListener('DOMContentLoaded', ()=> {
 	   // コンテナを指定
@@ -219,5 +141,5 @@ String color = "";
 	   setInterval(createLeaf.bind(this, 'leaf-3', 30, 50), 1000);
 	 });
    </script><!-- JS読み込み -->
-  </body>
+</body>
 </html>
