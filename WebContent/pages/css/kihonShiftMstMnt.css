@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+body{
+	background-image: url(http://localhost:8080/kikin/pages/bse/img/sakura.jpg);
+	background-size:  cover;  
+}
+
+#headCenter{
+	color: black;
+}
