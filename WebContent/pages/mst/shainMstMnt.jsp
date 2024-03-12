@@ -120,7 +120,7 @@
 
 <title>社員マスタメンテナンス画面</title>
 
-<link href="/kikin/pages/css/common.css" rel="stylesheet"
+<link href="/kikin/pages/css/shift.css" rel="stylesheet"
 	type="text/css" />
 </head>
 <body>

@@ -1,0 +1,83 @@
+/*body定義*/
+/*勤務実績確認画面の背景設定　あいはま*/
+body {
+    background-color: #FFFFFF;
+    overflow: hidden;
+     background: url(../../pages/cmn/img/yuki.jpg) no-repeat;
+     background-size: cover;
+}
+errorbody {
+    background-color: red;
+}
+#wrapper {
+    width:100%;
+    padding:0px;
+}
+/*ヘッダー定義*/
+#header {
+    top: 2px;
+    height: 40px;
+    width:100%;
+}
+#headLeft {
+    width:200px;
+    text-align:left;
+}
+#headCenter {
+    font-size: 24px;
+    color: #FFFF00;
+    width:800px;
+    text-align:center;
+
+}
+#headRight {
+    width:200px;
+    text-align:right;
+}
+/* フッター定義*/
+#footer {
+    bottom: 1%;
+    height: 90px;
+}
+#footLeft {
+    float:left;
+    width:400px;
+    text-align:left;
+}
+#footCenter {
+    float:left;
+    width:400px;
+    text-align:center;
+}
+#footRight {
+    float:left;
+    width:400px;
+    text-align:right;
+}
+
+/*ヘッダー、フッター共通定義*/
+#header,#gymBody,#footer {
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    /*background-color: #66CCFF;*/
+}
+/*テーブルヘッダーのスタイル*/
+.tblHeader {
+    background-color: #98FB98;
+    font-weight: bold;
+}
+/*業務body定義*/
+#gymBody {
+    height: 500px;
+    overflow: auto;
+}
+/*ボタンサイズ通常*/
+.smlButton {
+    width: 100px;
+    height: 30px;
+}
+/*テーブルボディのスタイル*/
+.tblBody {
+    background-color: #E0FFFF;
+}

@@ -94,13 +94,7 @@ errorbody {
     background-color: #98FB98;
     font-weight: bold;
 }
-/*勤務実績確認画面の背景設定　あいはま*/
-#wrapper_zisseki {
-  width: 100%;
-  padding-top: 0%;
-  background: url(../../pages/cmn/img/momizi.png) no-repeat;
-  background-size: cover;
-}
+
 /* ===== 落ち葉を表示するコンテナのスタイル ===== */
 .wrapper_zisseki.leaves-container {
   position: relative;
