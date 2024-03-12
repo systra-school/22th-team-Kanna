@@ -1,33 +1,33 @@
-.kinmuzisseki_kakunin .ctrl_area {
+.ctrl_area {
 	display: flex;
     justify-content: space-between;
     margin-bottom: 6px;
 }
 
 /* table */
-.kinmuzisseki_kakunin table {
+table {
 	width: 100%;
 	border-spacing: 0;
 	border-top: 1px solid #252525;
 	border-left: 1px solid #252525;
 }
-.kinmuzisseki_kakunin th,
-.kinmuzisseki_kakunin td {
+
+/* 確認画面 */
+th, td {
 	padding: 0;
 	text-align: center;
 	white-space: nowrap;
 	border-right: 1px solid #252525;
 	border-bottom: 1px solid #252525;
 }
-.kinmuzisseki_kakunin thead,
-.kinmuzisseki_kakunin tbody {
+thead, tbody {
 	display: block;
     overflow-y: scroll;
 }
-.kinmuzisseki_kakunin tbody {
+tbody {
 	height: 400px;
 }
-.kinmuzisseki_kakunin tr {
+tr {
 	display: flex;
 }
 .w30 {
@@ -43,6 +43,15 @@
 	flex-basis: 20%;
 }
 
+/* 入力画面 */
+.kinmuzisseki_nyuuryoku tr {
+	height: 26px;
+}
+.kinmuzisseki_nyuuryoku input {
+	width: 98%;
+	height: 21px;
+	font-size: 13px;
+}
 
 /*
 * body定義
@@ -53,7 +62,7 @@ body {
     overflow: hidden;
      background: url(../../pages/cmn/img/momizi.png) no-repeat;
      background-size: cover;
-     overflow: hidden !important;
+     /*overflow: hidden !important;*/
 }
 errorbody {
     background-color: red;
