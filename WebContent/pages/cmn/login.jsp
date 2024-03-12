@@ -15,7 +15,7 @@
  -->
 
 		<div class="animation-area">
-			<img id="dragon" src="http://localhost:8080/kikin/pages/cmn/img/dragon-54.gif" alt="dragon" width="800px" height="400px" style="position: absolute; top: 150px; left: -800px; z-index: 10;">
+			<img id="dragon" src="http://localhost:8080/kikin/pages/cmn/img/dragon.gif" alt="dragon" width="800px" height="400px" style="position: absolute; top: 150px; left: -800px; z-index: 10;">
 			
 			<audio loop id="btn_audio">
 				<source src="audio/dragon_fly1.mp3" type="audio/mp3">
@@ -50,7 +50,7 @@
 		      }
 		      %>
 		      <br/>
-		      <div style="width: 250px; padding-top: 20px;">
+		      <div style="width: 250px; padding-top: 20px;  font-size: 13px;">
 			      <html:submit onclick="audio()" styleId="start" property="submit" value="送信" style="width: 70px; height: 35px; border-radius: 5px; position: relative; z-index: 20;" />
 			      <html:reset value="リセット" style="width: 70px; height: 35px; border-radius: 5px; position: relative; z-index: 20;" />
 		      </div>

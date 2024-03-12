@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 .body {
-	background-color: #fff !important;
+	background-image: url(http://localhost:8080/kikin/pages/cmn/img/haikei.jpg) !important;
+	background-size:  cover; 
 	overflow: hidden;
 }
 .header {
     width: 100% !important;
     height: auto !important;
     margin: 0 !important;
-    padding: 40px 0;
-	background: #ccc;
+    padding: 100px 0 0 0;
 }
 .header .title {
 	font-weight: normal;
