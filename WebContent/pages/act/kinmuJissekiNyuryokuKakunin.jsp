@@ -18,12 +18,13 @@
 <bean:size id="dateBeanListSize" name="kinmuJissekiNyuryokuKakuninForm"  property="dateBeanList"/>
 <bean:define id="pageTitle" value="勤務実績入力" type="java.lang.String"/>
 <bean:define id="pageName" value="kinmuzisseki" type="java.lang.String"/>
+<bean:size id="beanListSize" name="kinmuJissekiNyuryokuKakuninForm" property="kinmuJissekiNyuryokuKakuninList" />
 
 <%@ include file="../header.jsp" %>
 <%-- ヘッダーの読込 --%>
 
 	<main class="formStyle kinmuzisseki_nyuuryoku">
-		<html:form action="/shainMstMntRegist">
+		<html:form action="/kinmuJissekiNyuryokuKakuninRegist">
 		<div class="ctrl_area">
 			<div class="paging">
 				<span class="moziColor">表示年月：</span>
@@ -121,9 +122,71 @@
 /**
  * 登録へ
  */
-function regist() {
-    // サブミット
-    doSubmit('/kikin/kinmuJissekiNyuryokuKakuninRegist.do');
+ function regist() {
+	 // 一覧のサイズ
+    var listSize = <%= beanListSize %>;
+    // 開始時間エラーメッセージ
+    var startTimeErrMsg = '';
+    // 終了時間エラーメッセージ
+    var endTimeErrMsg = '';
+    // 休憩時間エラーメッセージ
+    var breakTimeErrMsg = '';
+    // From - To エラーメッセージ
+    var fromToErrMsg = '';
+    // エラーメッセージ
+    var errorMsg = '';
+    with(document.forms[0].elements) {
+        for (var i = 0; i < listSize; i++) {
+            // 開始時間を取得する。
+            var startTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').value;
+            // 終了時間を取得する。
+            var endTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').value;
+            // 休憩時間を取得する。
+            var breakTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').value;
+            // 背景色をクリアする
+            namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'white';
+            namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'white';
+            namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'white';
+            // 時間チェック
+            if (!startTimeErrMsg) {
+                if (!checkTime(startTime)) {
+                    var strArr = ['開始時間'];
+                    startTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                    namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'red';
+                }
+            }
+            if (!endTimeErrMsg) {
+                if (!checkTime(endTime)) {
+                    var strArr = ['終了時間'];
+                    endTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                    namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'red';
+                }
+            }
+            if (!breakTimeErrMsg) {
+                if (!checkTime(breakTime)) {
+                    var strArr = ['休憩時間'];
+                    breakTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                    namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'red';
+                }
+            }
+            // from - to のチェック
+            if (!checkTimeCompare(startTime, endTime)) {
+              if (checkTime(startTime) && checkTime(endTime)) {
+                  fromToErrMsg = getMessageCodeOnly('E-MSG-000005');
+                  namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'red';
+                  namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'red';
+              }
+            }
+        }
+    }
+    // エラーメッセージ
+    errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
+    if (errorMsg) {
+        alert(errorMsg);
+        // エラー
+        return false;
+    }
+    document.forms[0].submit();
 }
 /**
  * 検索
