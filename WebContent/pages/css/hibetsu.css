@@ -1,3 +1,10 @@
+body {
+    background-color: #FFFFFF;
+    overflow: hidden;
+     background: url(../../pages/cmn/img/ame.jpg) no-repeat;
+     background-size: cover;
+}
+
 table {
 	border-spacing: 0;
 }
