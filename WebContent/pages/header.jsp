@@ -1,7 +1,9 @@
 <%@page contentType="text/html; charset=Shift_JIS" pageEncoding="Shift_JIS"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
-	<title><%= pageTitle %></title>
+	<title>${pageTitle}</title>
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
@@ -12,7 +14,7 @@
 	<script type="text/javascript" src="/kikin/pages/js/table.js"></script>
 	<link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
 	<link href="/kikin/pages/css/sanitize.css" rel="stylesheet" type="text/css" />
-	<link href="/kikin/pages/css/<%= pageName %>.css" rel="stylesheet" type="text/css" />
+	<link href="/kikin/pages/css/${pageName}.css" rel="stylesheet" type="text/css" />
 	<style>
 		body {
 			overflow: auto;
@@ -92,12 +94,22 @@
 
 <body class="body">
 	<div id="wrapper">
-		<header class="header">
-			<div class="header_left">
-				<input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/tsukibetsuShiftKakuninBack.do')" />
-		</div>
-		<h1 class="title"><%= pageTitle %></h1>
-		<div class="header_right">
-			<input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
-			</div>
-		</header><%-- header --%>
+		<c:choose>
+			<c:when test="${pageName == 'login'}">
+			<header class="header">
+				<h1 class="title">${pageTitle}</h1>
+			</header>
+			</c:when>
+			<c:otherwise>
+			<header class="header">
+				<div class="header_left">
+					<input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/tsukibetsuShiftKakuninBack.do')" />
+				</div>
+				<h1 class="title">${pageTitle}</h1>
+				<div class="header_right">
+					<input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
+				</div>
+			</header>
+			</c:otherwise>
+		</c:choose>
+		<%-- header --%>

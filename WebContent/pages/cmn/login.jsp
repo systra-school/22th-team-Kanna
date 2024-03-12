@@ -2,29 +2,20 @@
 <%@page contentType="text/html; charset=Shift_JIS" pageEncoding="Shift_JIS"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<html>
-<head>
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
-	<html:javascript formName="loginForm" />
-	<title>ログイン画面Login</title>
-	<link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
-	<link href="/kikin/pages/css/login.css" rel="stylesheet" type="text/css" />
-</head>
-<body style="margin: 0;">
-	<div id="wrapper">
-        <div id="header" style="height: 100px; line-height: 100px; font-size: 24px; text-align:center; background-color: #ccc;">
-        	ログイン
-        	<!-- <img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud1.png" alt="cloud" style="widht: 80px; height: 200px; opacity: 0.7; position: absolute; top: -50px; left: -150px;">
-        	<img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud2.png" alt="cloud" style="widht: 80px; height: 150px; opacity: 0.7; position: absolute; top: 25px; left: 100px;">
-        	<img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud1.png" alt="cloud" style="widht: 80px; height: 200px; opacity: 0.7; position: absolute; top: -50px; left: 300px;">
-        	<img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud2.png" alt="cloud" style="widht: 80px; height: 150px; opacity: 0.7; position: absolute; top: 25px; left: 500px;">
-        	 -->
-        </div>
-        
-        <div class="animation-area">
-  			<img id="dragon" src="http://localhost:8080/kikin/pages/cmn/img/dragon-54.gif" alt="dragon" width="800px" height="400px" style="position: absolute; top: 150px; left: -800px; z-index: 10;">
+
+<bean:define id="pageTitle" value="ログイン" type="java.lang.String"/>
+<bean:define id="pageName" value="login" type="java.lang.String"/>
+
+<%@ include file="../header.jsp" %>
+<%-- ヘッダーの読込 --%>
+<!-- <img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud1.png" alt="cloud" style="widht: 80px; height: 200px; opacity: 0.7; position: absolute; top: -50px; left: -150px;">
+<img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud2.png" alt="cloud" style="widht: 80px; height: 150px; opacity: 0.7; position: absolute; top: 25px; left: 100px;">
+<img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud1.png" alt="cloud" style="widht: 80px; height: 200px; opacity: 0.7; position: absolute; top: -50px; left: 300px;">
+<img id="cloud1" src="http://localhost:8080/kikin/pages/cmn/img/cloud2.png" alt="cloud" style="widht: 80px; height: 150px; opacity: 0.7; position: absolute; top: 25px; left: 500px;">
+ -->
+
+		<div class="animation-area">
+			<img id="dragon" src="http://localhost:8080/kikin/pages/cmn/img/dragon-54.gif" alt="dragon" width="800px" height="400px" style="position: absolute; top: 150px; left: -800px; z-index: 10;">
 			
 			<audio loop id="btn_audio">
 				<source src="audio/dragon_fly1.mp3" type="audio/mp3">
@@ -37,7 +28,7 @@
 			</div>
 		</div>
 		
-		<div id="gymBody" class="rain" style="display: flex; justify-content: center; align-items: center; overflow: hidden; background-color: #fff;"> 
+		<main class="main rain"> 
 		  <div align="center">
 		    <div style="position: relative; z-index: 20;">ID・パスワードを入力してください。</div>
 		    <html:form action="/login" onsubmit="return validateLoginForm(this)">
@@ -62,25 +53,10 @@
 		    sh0005<BR>
 		     --%>
 		  </div>
-		</div>
-	    <div id="footer" style="background-color: #fff;">
-	        <table>
-	          <tr>
-	              <td id="footLeft">
-	                　
-	              </td>
-	              <td id="footCenter">
-	                　
-	              </td>
-	              <td id="footRight">
-	                　
-	              </td>
-	          </tr>
-	        </table>
-	    </div>
-
-	</div>
+		</main>
+	</div><%-- wrapper --%>
 		
+		<html:javascript formName="loginForm" />
 		<script>
 			// --ドラゴンを動かす処理-- //
 			const start = document.getElementById('start'); // 開始ボタン

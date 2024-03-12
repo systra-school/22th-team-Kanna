@@ -1,5 +1,27 @@
 @charset "UTF-8";
 
+.body {
+	background-color: #fff !important;
+	overflow: hidden;
+}
+.header {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 40px 0;
+	background: #ccc;
+}
+.header .title {
+	font-weight: normal;
+	color: #000 !important;
+}
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 90px;
+}
+
 /* 雨の設定 */
 .rains{
   position: fixed;
