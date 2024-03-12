@@ -1,35 +1,77 @@
+.body {
+     background: url(../../pages/cmn/img/sora.jpg) no-repeat;
+     background-size: cover;
+}
+.header .title {
+	color: #48af3d !important;
+	font-weight: normal;
+}
+.menu_wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+.menuBlock {
+	margin:0 ;
+	padding: 0;
+	float:none;
+	width: 23%;
+    margin-left: 2%;
+}
+@media screen and (max-width: 768px) {
+	.menuBlock {
+		width: 30%;
+    	margin-left: 3.33%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.menuBlock {
+		width: 40%;
+    	margin-left: 10%;
+	}
+}
+.menuBlock3 {
+	position: fixed;
+    bottom: 80px;
+    left: 0;
+}
+.fuwafuwa {
+	width: 30vw;
+	min-width: 270px;
+}
+
 /*
 * body定義
 */
-body {
+/*body {
     background-color: #FFFFFF;
     overflow: hidden;
      background: url(../../pages/cmn/img/sora.jpg) no-repeat;
      background-size: cover;
-}
+}*/
 errorbody {
     background-color: red;
-}
+}/*
 #wrapper {
     width:100%;
     padding:0px;
-}
+}*/
 
 
 /*
 * ヘッダー、フッター共通定義
 */
-#header,#gymBody,#footer {
+/*#header,#gymBody,#footer {
     width: 100%;
     margin: 0px;
     padding: 5px;
-    /*background-color: #66CCFF;*/
-}
+    background-color: #66CCFF;
+}*/
 
 /*
 * ヘッダー定義
 */
-#header {
+/*#header {
     top: 2px;
     height: 40px;
     width:100%;
@@ -48,29 +90,30 @@ errorbody {
 #headRight {
     width:200px;
     text-align:right;
-}
+}*/
+
 /*
 * メニュー画面のボタン
-*/
+*//*
 .menuBlock {
     margin-left:30px;
     float:left;
     text-align:"center";
     padding:30px;
-}
+}*/
 
 /*
 * 業務body定義
 */
-#gymBody {
+/*#gymBody {
     height: 500px;
     overflow: auto;
-}
+}*/
 
 /*
 * フッター定義
 */
-#footer {
+/*#footer {
     bottom: 1%;
     height: 90px;
 }
@@ -88,7 +131,7 @@ errorbody {
     float:left;
     width:400px;
     text-align:right;
-}
+}*/
 /*
 * ボタンサイズ通常
 */
@@ -195,7 +238,8 @@ errorbody {
   --😀😀: #4836bb;
   --😀😀😀: #654dff63;
   cursor: pointer;
-  width: 184px;
+  /*width: 184px;*/
+  width: 100%; /*太田*/
   height: 48px;
   display: flex;
   align-items: center;

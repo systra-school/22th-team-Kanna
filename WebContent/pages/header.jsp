@@ -100,6 +100,14 @@
 				<h1 class="title">${pageTitle}</h1>
 			</header>
 			</c:when>
+			<c:when test="${pageName == 'menu'}">
+			<header class="header">
+				<h1 class="title">${pageTitle}（${role}）</h1>
+				<div class="header_right">
+					<input value="ログアウト" type="button" class="smlButton ui-btn"  onclick="logout()" />
+				</div>
+			</header>
+			</c:when>
 			<c:otherwise>
 			<header class="header">
 				<div class="header_left">

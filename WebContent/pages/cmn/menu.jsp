@@ -6,48 +6,25 @@
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
+<bean:define id="pageTitle" value="メニュー" type="java.lang.String"/>
+<bean:define id="pageName" value="menu" type="java.lang.String"/>
 
-<html>
-  <head>
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
-    <html:javascript formName="loginForm" />
-    <script type="text/javascript" src="/kikin/pages/js/common.js"></script>
-    <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
-    <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
+<logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
+	property="kengenId"
+	value="<%=CommonConstant.Kengen.KANRISYA.getId() %>">
+	<bean:define id="role" value="管理者" type="java.lang.String"/>
+</logic:equal>
 
-    <title>メニュー画面</title>
-    <link href="/kikin/pages/css/menu.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div id="wrapper">
-      <div id="header">
-        <table>
-          <tr>
-            <td id="headLeft">
-              　
-            </td>
-            <td id="headCenter1">
-            <logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
-                         property="kengenId"
-                         value="<%=CommonConstant.Kengen.KANRISYA.getId() %>">
-                メニュー(管理者)
-            </logic:equal>
+<logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
+	property="kengenId"
+	value="<%=CommonConstant.Kengen.IPPAN.getId() %>">
+	<bean:define id="role" value="一般" type="java.lang.String"/>
+</logic:equal>
 
-            <logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
-                         property="kengenId"
-                         value="<%=CommonConstant.Kengen.IPPAN.getId() %>">
-                メニュー(一般)
-            </logic:equal>
-            </td>
-            <td id="headRight">
-              <input value="ログアウト" type="button" class="smlButton ui-btn"  onclick="logout()" />
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div id="gymBodyMenu">
+<%@ include file="../header.jsp" %>
+<%-- ヘッダーの読込 --%>
+<main class="formStyle">
+	<div class="menu_wrapper">
         <logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
                      property="kengenId"
                      value="<%=CommonConstant.Kengen.KANRISYA.getId() %>">
@@ -124,27 +101,15 @@
           </div>
 
         </logic:equal>
-      </div>
+	</div>
+</main>
        <div class="menuBlock3">
           <div class="fuwafuwa">
               <img src="pages/cmn/img/kairyu2.png">
               </div>
           </div>
-      <div id="footer">
-        <table>
-          <tr>
-            <td id="footLeft">
-              　
-            </td>
-            <td id="footCenter">
-              　
-            </td>
-            <td id="footRight">
-              　
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </body>
+</div><%-- wrapper --%>
+
+<html:javascript formName="loginForm" />
+</body>
 </html>
