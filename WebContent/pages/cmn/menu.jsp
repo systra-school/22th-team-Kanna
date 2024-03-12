@@ -18,10 +18,10 @@
     <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
 
     <title>ƒƒjƒ…[‰æ–Ê</title>
-    <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/menu.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="wrapper1">
+    <div id="wrapper">
       <div id="header">
         <table>
           <tr>

@@ -205,5 +205,7 @@
 			</table>
 		</div>
 	</div>
+	<div class="snow">œ</div>
+<div class="snow snow2nd">œ</div>
 </body>
 </html>
