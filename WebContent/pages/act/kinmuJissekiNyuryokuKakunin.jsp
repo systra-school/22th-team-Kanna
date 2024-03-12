@@ -44,7 +44,7 @@
     </script>
     <title>ãŒñ±é¿ê—ì¸óÕâÊñ </title>
 
-    <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/kinmuzisseki.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="wrapper">
@@ -64,6 +64,7 @@
         </table>
       </div>
       <div id="gymBody">
+       <div class="moziColor">
         <html:form action="/shainMstMntRegist" >
           <div style="float: left; width: 100%;">
             <div style="float: left; width: 804px; text-align: left; margin-left:100px;">
@@ -80,6 +81,7 @@
               ÅFé–àıñº&nbsp;<bean:write name="kinmuJissekiNyuryokuKakuninForm" property="shainName"/>
             </div>
           </div>
+         </div> 
           <div>
             <div style="overflow: hidden; width: 1080px; margin-left:80px;">
             <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">

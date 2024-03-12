@@ -1,0 +1,163 @@
+/*
+* body定義
+*/
+/*勤務実績確認画面の背景設定　あいはま*/
+body {
+    background-color: #FFFFFF;
+    overflow: hidden;
+     background: url(../../pages/cmn/img/momizi.png) no-repeat;
+     background-size: cover;
+}
+errorbody {
+    background-color: red;
+}
+#wrapper {
+    width:100%;
+    padding:0px;
+}
+/*
+* フッター定義
+*/
+#footer {
+    bottom: 1%;
+    height: 90px;
+}
+#footLeft {
+    float:left;
+    width:400px;
+    text-align:left;
+}
+#footCenter {
+    float:left;
+    width:400px;
+    text-align:center;
+}
+#footRight {
+    float:left;
+    width:400px;
+    text-align:right;
+}
+/*
+* ヘッダー、フッター共通定義
+*/
+#header,#gymBody,#footer {
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    /*background-color: #66CCFF;*/
+}
+/*
+* テーブルボディのスタイル
+*/
+.tblBody {
+    background-color: #E0FFFF;
+}
+/*
+* 業務body定義
+*/
+#gymBody {
+    height: 500px;
+    overflow: auto;
+}
+/*
+* ボタンサイズ通常
+*/
+.smlButton {
+    width: 100px;
+    height: 30px;
+}
+
+#header {
+    top: 2px;
+    height: 40px;
+    width:100%;
+}
+#headCenter {
+    font-size: 24px;
+    color: #FFFF00;
+    width:800px;
+    text-align:center;
+
+}
+#headRight {
+    width:200px;
+    text-align:right;
+}
+#headLeft {
+    width:200px;
+    text-align:left;
+}
+/*
+* テーブルヘッダーのスタイル
+*/
+.tblHeader {
+    background-color: #98FB98;
+    font-weight: bold;
+}
+/*勤務実績確認画面の背景設定　あいはま*/
+#wrapper_zisseki {
+  width: 100%;
+  padding-top: 0%;
+  background: url(../../pages/cmn/img/momizi.png) no-repeat;
+  background-size: cover;
+}
+/* ===== 落ち葉を表示するコンテナのスタイル ===== */
+.wrapper_zisseki.leaves-container {
+  position: relative;
+  height: 100vh; /* コンテナの高さ */
+  width: 100%; /* コンテナの横幅 */
+  overflow: hidden; /* コンテナからはみ出した要素を隠す */
+}
+
+/* ===== 落ち葉のスタイル ===== */
+
+/* 落ち葉の共通スタイル */
+.leaf {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  animation: animate-leaf 8s linear;
+}
+
+/* 落ち葉1 */
+.leaf-1 {
+  background-image: url('img/leaf-1.svg'); /* 任意のパスを記入 */
+}
+
+/* 落ち葉2 */
+.leaf-2 {
+  background-image: url('img/leaf-2.svg'); /* 任意のパスを記入 */
+}
+
+/* 落ち葉3 */
+.leaf-3 {
+  background-image: url('img/leaf-3.svg'); /* 任意のパスを記入 */
+}
+
+/* ===== 落ち葉が降るアニメーション ===== */
+@keyframes animate-leaf {
+  0% {
+    opacity: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: 100vh;
+    transform: rotate(1080deg);
+  }
+}
+/*文字色修正*/
+.moziColor{
+	color:#ffff00;
+}

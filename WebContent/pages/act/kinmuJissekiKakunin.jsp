@@ -38,7 +38,7 @@ String color = "";
     </script>
     <title>勤務実績確認画面</title>
 
-    <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/kinmuzisseki.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="wrapper">
@@ -58,6 +58,7 @@ String color = "";
         </table>
       </div>
       <div id="gymBody">
+       <div class="moziColor">
         <html:form action="/shainMstMntRegist" >
           <div style="float: left; width: 100%;">
             <div style="float: left; width: 844px; text-align: left; margin-left:100px;">
@@ -79,6 +80,7 @@ String color = "";
               </html:select>
             </div>
           </div>
+         </div> 
           <div style="width: 1088px; margin-left:100px;">
             <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
               <tr>
@@ -187,5 +189,35 @@ String color = "";
         </table>
     </div>
   </div>
+   <script src="main.js">
+   window.addEventListener('DOMContentLoaded', ()=> {
+	   // コンテナを指定
+	   const container = document.querySelector('.leaves-container');
+
+	   // 葉っぱを生成する関数
+	   const createLeaf = (leafClass, minSizeVal, maxSizeVal) => {
+	     const leafEl = document.createElement('span');
+	     leafEl.className = `leaf ${leafClass}`;
+	     const minSize = minSizeVal;
+	     const maxSize = maxSizeVal;
+	     const size = Math.random() * (maxSize + 1 - minSize) + minSize;
+	     leafEl.style.width = `${size}px`;
+	     leafEl.style.height = `${size}px`;
+	     leafEl.style.left = Math.random() * 100 + '%';
+	     container.appendChild(leafEl);
+
+	     // 一定時間が経てば葉っぱを消す
+	     setTimeout(() => {
+	       leafEl.remove();
+	     }, 8000);
+	   }
+
+	   // 葉っぱを生成する間隔をミリ秒で指定する
+	   // createLeafの引数には、'クラス名', '最小サイズ', '最大サイズ'を渡す
+	   setInterval(createLeaf.bind(this, 'leaf-1', 30, 50), 1000);
+	   setInterval(createLeaf.bind(this, 'leaf-2', 30, 50), 1000);
+	   setInterval(createLeaf.bind(this, 'leaf-3', 30, 50), 1000);
+	 });
+   </script><!-- JS読み込み -->
   </body>
 </html>
