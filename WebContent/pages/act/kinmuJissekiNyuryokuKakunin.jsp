@@ -147,6 +147,10 @@
             namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'white';
             namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'white';
             namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'white';
+            // 入力されてない場合にスキップ
+            if(startTime === '' || endTime === '' || breakTime === ''){
+            	continue;
+            }
             // 時間チェック
             if (!startTimeErrMsg) {
                 if (!checkTime(startTime)) {
@@ -195,6 +199,7 @@ function submitSearch() {
     doSubmit('/kikin/kinmuJissekiNyuryokuKakuninSearch.do');
 }
 -->
+//# sourceURL = asdf.js
 </script>
 </body>
 </html>
