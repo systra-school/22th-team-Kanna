@@ -1,10 +1,33 @@
 @charset "UTF-8";
 
 body{
-	background-image: url(http://localhost:8080/kikin/pages/bse/img/sakura.jpg);
-	background-size:  cover;  
+	background-image: url(http://localhost:8080/kikin/pages/bse/img/sakura.png);
+	background-size:  100%;  
 }
 
 #headCenter{
 	color: black;
+	font-family: "Yuji Mai";
+}
+
+.buttom {
+    /*ボタンの形状*/
+    display: inline-block;
+    color: #fff;
+    
+    padding: 8px 30px;
+    border-radius:30px;
+    border-color: #fff;
+    text-decoration: none;
+    outline: none;
+    /*背景色*/
+    background: linear-gradient(to right, #44ea76 0%, #39fad7 80%, #39fad7 100%);
+    /*アニメーションの指定*/ 
+    transition: all 0.3s ease-out;
+}
+
+/*hoverした際のスケールで全体を拡大し影を付ける*/
+.buttom:hover {
+    transform: scale(1.05);
+    
 }
