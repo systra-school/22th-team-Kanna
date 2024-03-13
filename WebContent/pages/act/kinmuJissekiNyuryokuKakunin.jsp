@@ -19,7 +19,8 @@
 <bean:define id="pageTitle" value="‹Î–±ŽÀÑ“ü—Í" type="java.lang.String"/>
 <bean:define id="pageName" value="kinmuzisseki" type="java.lang.String"/>
 <bean:size id="beanListSize" name="kinmuJissekiNyuryokuKakuninForm" property="kinmuJissekiNyuryokuKakuninList" />
-
+<link href="/kikin/pages/css/kinmuzisseki.css" rel="stylesheet"
+	type="text/css" />
 <%@ include file="../header.jsp" %>
 <%-- ƒwƒbƒ_[‚Ì“Çž --%>
 

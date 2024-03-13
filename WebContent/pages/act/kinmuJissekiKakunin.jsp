@@ -14,7 +14,8 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-
+<link href="/kikin/pages/css/kinmuzisseki.css" rel="stylesheet"
+	type="text/css" />
 <bean:define id="pageTitle" value="‹Î–±ŽÀÑŠm”F" type="java.lang.String"/>
 <bean:define id="pageName" value="kinmuzisseki" type="java.lang.String"/>
 
