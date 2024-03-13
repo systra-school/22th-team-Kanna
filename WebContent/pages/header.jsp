@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<title>${pageTitle}</title>
+	<title>${pageTitle}‰æ–Ê</title>
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
@@ -92,7 +92,7 @@
 	</style>
 </head>
 
-<body class="body">
+<body class="body ${pageName}">
 	<div id="wrapper">
 		<c:choose>
 			<c:when test="${pageName == 'login'}">
