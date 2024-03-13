@@ -76,3 +76,186 @@ th, td {
 .hibetsu tr td {
 	min-width: 200px;
 }
+.hibetsu .header_left ,.hibetsu .header_right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* ボタンデザイン変更 */
+.hibetsu .smlButton {
+  position: relative;
+  width: 150px;
+  height: 55px;
+  border-radius: 45px;
+  border: none;
+  background-color: rgb(151, 95, 255);
+  color: white;
+  box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+  0px 5px 10px rgba(5, 5, 5, 0.212),
+  0px -10px 10px rgb(124, 54, 255) inset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hibetsu .smlButton:before {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.678);
+  content: "";
+  filter: blur(1px);
+  top: 7px;
+  border-radius: 50%;
+}
+
+.hibetsu .smlButton:after {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.137);
+  content: "";
+  filter: blur(1px);
+  bottom: 7px;
+  border-radius: 50%;
+}
+
+.hibetsu .smlButton:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+
+/* 雫のデザイン */
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    filter: contrast(20);
+    top: 0;
+    z-index: -1;
+}
+.bar1 {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	background: #00ffff;
+	filter: blur(10px); /* 雫のサイズにより拡縮 */
+}
+
+.bar2 {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	
+}
+
+.drops div {
+	position: absolute;
+	top: -50px;
+	width: 55px;
+	height: 70px;
+	border-radius: 50%;
+	background: #00ffff;
+	filter: blur(10px); /* 雫のサイズにより拡縮 */
+	animation: drop-anim 3s linear infinite;
+}
+
+.drops div:nth-child(1) {
+	left: calc(5% - 25px);
+	animation-delay: 0.3s;
+}
+
+.drops div:nth-child(2) {
+	left: calc(15% - 25px);
+	animation-delay: 2.1s;
+}
+
+.drops div:nth-child(3) {
+	left: calc(25% - 25px);
+	animation-delay: 1.8s;
+}
+
+.drops div:nth-child(4) {
+	left: calc(35% - 25px);
+	animation-delay: 1.2s;
+}
+
+.drops div:nth-child(5) {
+	left: calc(45% - 25px);
+	animation-delay: 2.7s;
+}
+
+.drops div:nth-child(6) {
+	left: calc(55% - 25px);
+	animation-delay: 0s;
+}
+
+.drops div:nth-child(7) {
+	left: calc(65% - 25px);
+	animation-delay: 1.5s;
+}
+
+.drops div:nth-child(8) {
+	left: calc(75% - 25px);
+	animation-delay: 0.3s;
+}
+
+.drops div:nth-child(9) {
+	left: calc(85% - 25px);
+	animation-delay: 0.9s;
+}
+
+.drops div:nth-child(10) {
+	left: calc(95% - 25px);
+	animation-delay: 2.4s;
+}
+
+
+@keyframes drop-anim {
+	0% {
+		top: -30px;
+		transform: scale(0.25);
+	}
+
+	80% {
+		top: 15px;
+		transform: scale(0.65);
+	}
+
+	100% {
+		top: 100%;
+		transform: scale(0.65);
+	}
+}

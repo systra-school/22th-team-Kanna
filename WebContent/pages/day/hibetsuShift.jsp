@@ -67,10 +67,10 @@
     }
     System.out.println(lastDayStr);
 %>
-
 <%@ include file="../header.jsp" %>
 <%-- ƒwƒbƒ_[‚Ì“Çž --%>
 
+	
 <main class="formStyle hibetsu">
 	<html:form>
 		<div class="paging">
@@ -241,7 +241,16 @@
 	</html:form>
 </main>
 </div><%-- wrapper --%>
-    
+
+<div class="container">
+	<div class="drops">
+		<div></div><div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div><div></div>
+	</div>
+	<div class="bar1"></div>
+	<div class="bar2"></div>
+</div>
+  
 <script type="text/javascript">
 <!--
 
