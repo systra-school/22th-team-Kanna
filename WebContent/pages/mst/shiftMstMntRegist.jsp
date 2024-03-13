@@ -111,13 +111,13 @@
         <table>
           <tr>
             <td id="headLeft">
-              <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shiftMstMntRegistBack.do')" />
+              <input value="戻る" type="button" class="smlButton1"  onclick="doSubmit('/kikin/shiftMstMntRegistBack.do')" />
             </td>
             <td id="headCenter">
               シフトマスタメンテナンス（新規登録）
             </td>
             <td id="headRight">
-              <input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
+              <input value="ログアウト" type="button" class="smlButton1"  onclick="logout()" />
             </td>
           </tr>
         </table>
@@ -184,7 +184,7 @@
               　
             </td>
             <td id="footRight">
-                <input value="登録" type="button" class="smlButton"  onclick="shiftMstMntRegist()" />
+                <input value="登録" type="button" class="smlButton1"  onclick="shiftMstMntRegist()" />
             </td>
           </tr>
         </table>

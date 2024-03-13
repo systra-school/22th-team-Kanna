@@ -92,11 +92,11 @@
 			<table>
 				<tr>
 					<td id="headLeft"><input value="戻る" type="button"
-						class="smlButton"
+						class="smlButton1"
 						onclick="doSubmit('/kikin/shainMstMntRegistBack.do')" /></td>
 					<td id="headCenter">社員マスタメンテナンス画面（新規登録）</td>
 					<td id="headRight"><input value="ログアウト" type="button"
-						class="smlButton" onclick="logout()" /></td>
+						class="smlButton1" onclick="logout()" /></td>
 				</tr>
 			</table>
 		</div>
@@ -137,7 +137,7 @@
 				<tr>
 					<td id="footLeft"></td>
 					<td id="footCenter"></td>
-					<td id="footRight"><input value="登録" type="button"class="smlButton" onclick="shainMstMntRegist()" /></td>
+					<td id="footRight"><input value="登録" type="button"class="smlButton1" onclick="shainMstMntRegist()" /></td>
 				</tr>
 			</table>
 		</div>

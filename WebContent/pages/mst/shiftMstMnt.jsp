@@ -132,11 +132,11 @@
 			<table>
 				<tr>
 					<td id="headLeft"><input value="戻る" type="button"
-						class="smlButton" onclick="doSubmit('/kikin/shiftMstMntBack.do')" />
+						class="smlButton1" onclick="doSubmit('/kikin/shiftMstMntBack.do')" />
 					</td>
 					<td id="headCenter">シフトマスタメンテナンス</td>
 					<td id="headRight"><input value="ログアウト" type="button"
-						class="smlButton" onclick="logout()" /></td>
+						class="smlButton1" onclick="logout()" /></td>
 				</tr>
 			</table>
 		</div>
@@ -203,8 +203,8 @@
 					<td id="footLeft"></td>
 					<td id="footCenter"></td>
 					<td id="footRight"><input value="新規登録" type="button"
-						class="smlButton" onclick="shiftMstMntRegistInit()" /> <input
-						value="更新" type="button" class="smlButton"
+						class="smlButton1" onclick="shiftMstMntRegistInit()" /> <input
+						value="更新" type="button" class="smlButton1"
 						onclick="shiftMstMntUpdate()" /></t	d>
 				</tr>
 			</table>
