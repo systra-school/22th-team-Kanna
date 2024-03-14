@@ -55,10 +55,11 @@
 		}
 		.footer_btn {}
 		.footer_btn__left {
-			left: 0;
+			/*left: 0;*/
 		}
 		.footer_btn__right {
-			right: 0;
+			width: fit-content;
+    		margin-left: auto;
 		}
 		.copy {
 		    color: #fff;
@@ -111,11 +112,11 @@
 			<c:otherwise>
 			<header class="header">
 				<div class="header_left">
-					<input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/tsukibetsuShiftKakuninBack.do')" />
+					<input value="戻る" type="button" class="smlButton smlButton1"  onclick="doSubmit('/kikin/tsukibetsuShiftKakuninBack.do')" />
 				</div>
 				<h1 class="title">${pageTitle}</h1>
 				<div class="header_right">
-					<input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
+					<input value="ログアウト" type="button" class="smlButton smlButton1"  onclick="logout()" />
 				</div>
 			</header>
 			</c:otherwise>
