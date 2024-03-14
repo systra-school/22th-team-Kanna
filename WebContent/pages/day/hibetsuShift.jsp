@@ -23,7 +23,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <bean:size id="hibetsuShiftBeanListSize" name="hibetsuShiftForm"  property="hibetsuShiftBeanList"/>
-<bean:define id="pageTitle" value="日別シフト確認画面" type="java.lang.String"/>
+<bean:define id="pageTitle" value="日別シフト確認" type="java.lang.String"/>
 <bean:define id="pageName" value="hibetsu" type="java.lang.String"/>
 
 <%
@@ -67,11 +67,11 @@
     }
     System.out.println(lastDayStr);
 %>
+
 <%@ include file="../header.jsp" %>
 <%-- ヘッダーの読込 --%>
 
-	
-<main class="formStyle hibetsu">
+<main class="formStyle">
 	<html:form>
 		<div class="paging">
 		表示年月：
@@ -250,7 +250,7 @@
 	<div class="bar1"></div>
 	<div class="bar2"></div>
 </div>
-  
+    
 <script type="text/javascript">
 <!--
 
