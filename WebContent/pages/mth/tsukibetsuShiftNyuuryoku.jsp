@@ -173,7 +173,7 @@ if (listSize > intShowLength) {
 							%>
 						</c:forEach>
 						<c:forEach var="i" begin="10" end="${dateBeanListSize}">
-							<td style="background-color: pink">
+							<td>
 							<html:select property="shiftId${i}"
 									name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
 									<html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"

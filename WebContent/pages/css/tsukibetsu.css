@@ -100,5 +100,17 @@ th, td {
 }
 
 .bcColor{
-	border: 1px solid red;
+	/*border: 1px solid red;*/
+	background: red;
 }
+
+.tsukibetsu .tsukibetsu_nyuuryoku tr {
+	height: 25px;
+}
+.tsukibetsu_nyuuryoku select {
+	width: 90%;
+	height: 20px;
+    font-size: 11px;
+}
+
+
