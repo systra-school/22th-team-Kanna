@@ -140,6 +140,8 @@ errorbody {
  text-shadow: 0 0 .5em var(--glow-color);
  position: relative;
  transition: all 0.3s;
+ width: auto;
+   height: auto;
 }
 
 .smlButton1::after {
@@ -172,3 +174,50 @@ errorbody {
  transform: translateY(10px);
  transition: 100ms;
 }
+
+
+table {
+	border-spacing: 0;
+	border-top: 1px solid #252525;
+	border-left: 1px solid #252525;
+}
+th, td {
+	padding: 0;
+	text-align: center;
+	border-right: 1px solid #252525;
+	border-bottom: 1px solid #252525;
+}
+thead {
+	display: block;
+    overflow-y: scroll;
+}
+tbody {
+	display: block;
+	overflow-x: hidden;
+    overflow-y: scroll;
+    height: 400px;
+}
+tr {
+	display: flex;
+}
+input {
+	width: 100%;
+}
+.w_id {
+	flex-basis: 10%;
+}
+.w_pass {
+	flex-basis: 15%;
+}
+.w_name {
+	flex-basis: 30%;
+}
+.w_role {
+	flex-basis: 10%;
+}
+.w_del {
+	flex-basis: 5%;
+}
+
+
+
