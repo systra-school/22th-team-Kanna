@@ -26,6 +26,17 @@
 
 	<main class="formStyle kinmuzisseki_nyuuryoku">
 		<html:form action="/kinmuJissekiNyuryokuKakuninRegist">
+		<ul class="leaf">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
 		<div class="ctrl_area">
 			<div class="paging">
 				<span class="moziColor">ï\é¶îNåéÅF</span>

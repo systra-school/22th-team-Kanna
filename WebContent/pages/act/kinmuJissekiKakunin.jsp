@@ -28,6 +28,17 @@ String color = "";
 
 <main class="formStyle kinmuzisseki_kakunin">
 	<html:form action="/shainMstMntRegist" >
+	<ul class="leaf">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
 	<div class="ctrl_area">
 		<div class="paging">
 			<span class="moziColor">ï\é¶îNåéÅF</span>

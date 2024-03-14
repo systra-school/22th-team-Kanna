@@ -2,6 +2,7 @@
 	display: flex;
     justify-content: space-between;
     margin-bottom: 6px;
+    z-index: 1;
 }
 
 /* table */
@@ -10,6 +11,7 @@ table {
 	border-spacing: 0;
 	border-top: 1px solid #252525;
 	border-left: 1px solid #252525;
+	z-index: 1;
 }
 
 /* 確認画面 */
@@ -19,16 +21,20 @@ th, td {
 	white-space: nowrap;
 	border-right: 1px solid #252525;
 	border-bottom: 1px solid #252525;
+	z-index: 1;
 }
 thead, tbody {
 	display: block;
     overflow-y: scroll;
+    z-index: 1;
 }
 tbody {
 	height: 400px;
+	z-index: 1;
 }
 tr {
 	display: flex;
+	z-index: 1;
 }
 .w30 {
     flex-basis: 4%;
@@ -46,11 +52,13 @@ tr {
 /* 入力画面 */
 .kinmuzisseki_nyuuryoku tr {
 	height: 26px;
+	z-index: 1;	
 }
 .kinmuzisseki_nyuuryoku input {
 	width: 98%;
 	height: 21px;
 	font-size: 13px;
+	z-index: 1;
 }
 
 /*
@@ -63,6 +71,7 @@ body {
      background: url(../../pages/cmn/img/autumn.jpg) no-repeat;
      background-size: cover;
      /*overflow: hidden !important;*/
+     z-index: 1;
 }
 errorbody {
     background-color: red;
@@ -100,6 +109,7 @@ errorbody {
     width: 100%;
     margin: 0px;
     padding: 5px;
+    z-index: 1;
     /*background-color: #66CCFF;*/
 }
 /*
@@ -107,6 +117,7 @@ errorbody {
 */
 .tblBody {
     background-color: rgba(224, 255, 255, 0.5);
+    z-index: 1;
 }
 /*
 * 業務body定義
@@ -121,6 +132,7 @@ errorbody {
 .smlButton {
     width: 100px;
     height: 30px;
+    z-index: 1;
 }
 
 #header {
@@ -149,6 +161,7 @@ errorbody {
 .tblHeader {
     background-color: rgba(152, 251, 152, 0.5);
     font-weight: bold;
+    z-index: 1;
 }
 
 /*文字色修正*/
@@ -180,6 +193,7 @@ errorbody {
   cursor: pointer;
   align-items: center;
   transition: 150ms ease-in-out;
+  z-index: 1;
 }
 
 .kinmuzisseki .smlButton:active {
@@ -192,4 +206,151 @@ errorbody {
     rgba(0, 0, 0, 0.24) 0px 1.93094px 3.4757px -2.25px,
     rgba(0, 0, 0, 0.192) 0px 5.10423px 9.18761px -3.375px,
     rgba(0, 0, 0, 0.03) 0px 16px 28.8px -4.5px;
+    z-index: 1;
+}
+
+.leaf {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.leaf li{
+  position: absolute;
+  list-style: none;
+  top: -50px;
+  background: #c2704e;
+  border-radius: 0% 70%;
+  z-index:0;
+}
+
+
+@keyframes fall {
+  to {
+    top: 120%;
+  }
+}
+
+@keyframes sway1 {
+  from {
+    transform: translateX(0px) rotate(0deg);
+  }
+  to {
+    transform: translateX(200px) rotate(-45deg);
+  }
+}
+
+@keyframes sway2 {
+  from {
+    transform: translateX(200px) rotate(-45deg);
+  }
+  to {
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+.leaf li:nth-child(1){
+  left: 0%;
+  top: -60px;
+  width: 24px;
+  height: 15px;
+  background-color: #ffbf00;
+  animation: fall 10s linear infinite,
+             sway1 3s ease-in-out infinite alternate;
+  animation-delay: -2s;
+  z-index: 0;
+}
+
+.leaf li:nth-child(2){
+  left: 5%;
+  top: -70px;
+  width: 13px;
+  height: 9px;
+  background-color: #996600;
+  animation: fall 15s linear infinite,
+             sway1 2s ease-in-out infinite alternate;
+  animation-delay: -8s;
+  z-index: 0;
+}
+
+.leaf li:nth-child(3){
+  left: 15%;
+  top: -50px;
+  width: 16px;
+  height: 10px;
+  background-color: #c2704e;
+  animation: fall 9s linear infinite,
+             sway1 3.5s ease-in-out infinite alternate;
+  animation-delay: -13s;
+  z-index: 0;
+}
+
+.leaf li:nth-child(4){
+  left: 30%;
+  top: -70px;
+  width: 16px;
+  height: 10px;
+  background-color: #ffbf00;
+  animation: fall 8s linear infinite,
+             sway2 4s ease-in-out infinite alternate;
+  animation-delay: -7s;
+  z-index: 0;
+}
+.leaf li:nth-child(5){
+  left: 40%;
+  top: -60px;
+  width: 16px;
+  height: 10px;
+  animation: fall 10s linear infinite,
+             sway1 4s ease-in-out infinite alternate;
+  animation-delay: 0s;
+  z-index: 0;
+}
+.leaf li:nth-child(6){
+  left: 55%;
+  top: -50px;
+  width: 24px;
+  height: 15px;
+  background-color: #ff0000;
+  animation: fall 11s linear infinite,
+             sway2 3s ease-in-out infinite alternate;
+  animation-delay: -3s;
+  z-index: 0;
+}
+.leaf li:nth-child(7){
+  left: 65%;
+  top: -40px;
+  width: 16px;
+  height: 10px;
+  animation: fall 7s linear infinite,
+             sway2 3.5s ease-in-out infinite alternate;
+  animation-delay: -7s;
+  z-index: 0;
+}
+.leaf li:nth-child(8){
+  left: 50%;
+  top: -60px;
+  width: 13px;
+  height: 9px;
+  background-color: #c2704e;
+  animation: fall 7s linear infinite,
+             sway1 3s ease-in-out infinite alternate;
+  animation-delay: -3s;
+  z-index: 0;
+}
+.leaf li:nth-child(9){
+  left: 80%;
+  top: -70px;
+  width: 16px;
+  height: 10px;
+  animation: fall 10s linear infinite,
+             sway2 4s ease-in-out infinite alternate;
+  animation-delay: -4s;
+  z-index: 0;
 }
