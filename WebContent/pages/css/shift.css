@@ -176,32 +176,32 @@ errorbody {
 }
 
 
-.shainMst table {
+table {
 	width: 100%;
 	border-spacing: 0;
 	border-top: 1px solid #252525;
 	border-left: 1px solid #252525;
 }
-.shainMst th, .shainMst td {
+th, td {
 	padding: 0;
 	text-align: center;
 	border-right: 1px solid #252525;
 	border-bottom: 1px solid #252525;
 }
-.shainMst thead {
+thead {
 	display: block;
     overflow-y: scroll;
 }
-.shainMst tbody {
+tbody {
 	display: block;
 	overflow-x: hidden;
     overflow-y: scroll;
     height: 400px;
 }
-.shainMst tr {
+tr {
 	display: flex;
 }
-.shainMst input {
+input {
 	width: 100%;
 }
 .w_id {
