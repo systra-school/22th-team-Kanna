@@ -96,6 +96,7 @@ errorbody {
 .smlButton {
     width: 100px;
     height: 30px;
+    
 }
 
 /*
@@ -127,7 +128,7 @@ errorbody {
 * テーブルヘッダーのスタイル
 */
 .tblHeader {
-    background-color: #98FB98;
+    background-color:#389bb761;
     font-weight: bold;
 }
 
@@ -135,7 +136,7 @@ errorbody {
 * テーブルボディのスタイル
 */
 .tblBody {
-    background-color: #E0FFFF;
+    background-color:#ffd17045;
 }
 /*
 * 文字色 黒
@@ -170,4 +171,49 @@ errorbody {
   100% {
     transform: translateY(0);
   }
+}
+/*ボタンデザイン変更*/
+.smlButton ,.lngButton {
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(255, 56, 86);
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  transition: all .3s ease;
+  box-shadow: rgb(201, 46, 70) 0px -10px 0px 0px;
+  color: hsl(0, 0%, 100%);
+}
+.lngButton:hover,
+.smlButton:hover {
+  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+.lngButton:active,
+.smlButton:active {
+  background-color: rgb(255, 56, 86);
+ /*50, 168, 80*/
+  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+  transform: translateY(5px);
+  transition: 200ms;
+}
+
+
+.lngButton {
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(255, 56, 86);
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  transition: all .3s ease;
+  box-shadow: rgb(201, 46, 70) 0px -10px 0px 0px;
+  color: hsl(0, 0%, 100%);
+}
+.lngButton:hover {
+  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+.lngButton:active{
+  background-color: rgb(255, 56, 86);
+ /*50, 168, 80*/
+  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+  transform: translateY(5px);
+  transition: 200ms;
 }

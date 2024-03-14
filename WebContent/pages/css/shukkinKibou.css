@@ -4,3 +4,56 @@ body{
 	background-image: url(http://localhost:8080/kikin/pages/shk/img/yuuhi.png);
 	background-size:  cover; 
 }
+
+/*ボタンデザイン*/
+.smlButton {
+  display: inline-block;
+  border-radius: 2rem;
+  border: none;
+  background-color: #ff7675;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #000;
+  box-shadow: 6px 6px 0px #d63031;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.smlButton:hover {
+  background-color: #fdcb6e;
+  box-shadow: 4px 4px 0px #e17055;
+  transform: translate(2px, 2px);
+}
+
+.smlButton:active {
+  background-color: #e17055;
+  box-shadow: 0px 0px 0px #d63031;
+  transform: translate(6px, 6px);
+}
+/*凡例ボタンデザイン*/
+.lngButton {
+  display: inline-block;
+  border-radius: 2rem;
+  border: none;
+  background-color: #ff7675;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #000;
+  box-shadow: 6px 6px 0px #d63031;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lngButton:hover {
+  background-color: #fdcb6e;
+  box-shadow: 4px 4px 0px #e17055;
+  transform: translate(2px, 2px);
+}
+
+.lngButton:active {
+  background-color: #e17055;
+  box-shadow: 0px 0px 0px #d63031;
+  transform: translate(6px, 6px);
+}
