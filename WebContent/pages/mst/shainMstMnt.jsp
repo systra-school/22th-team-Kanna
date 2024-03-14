@@ -26,7 +26,7 @@
 
 <%@ include file="../header.jsp" %>
 <%-- ƒwƒbƒ_[‚Ì“Çž --%>
-<main class="formStyle">
+<main class="formStyle shainMst">
 	<html:form action="/shainMstMntUpdate">
 	<table class="tblHeader">
 		<thead>
