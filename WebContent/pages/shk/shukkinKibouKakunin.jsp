@@ -24,6 +24,9 @@
 <bean:define id="color" value="" type="java.lang.String"/>
 <bean:define id="showLength" value="18" type="java.lang.String"/>
 <bean:define id="maxPage"><bean:write name="shukkinKibouKakuninForm" property="maxPage"/></bean:define><%-- 表示年月用に追加（2024/03/07）--%>
+<bean:define id="pageTitle" value="出勤希望確認" type="java.lang.String"/>
+<bean:define id="pageName" value="shukkinKibou" type="java.lang.String"/>
+
 <html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
@@ -32,22 +35,7 @@
     <script type="text/javascript" src="/kikin/pages/js/common.js"></script>
     <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
     <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
-    <script type="text/javascript" language="Javascript1.1">
-    <!--
-    /**
-     * 検索
-     */
-    function submitSearch() {
-        doSubmit('/kikin/shukkinKibouKakuninSearch.do');
-    }
-    /**
-     * サブウィンドウを開く
-     */
-    function openWindow(){
-        window.open("/kikin/shiftHanrei.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
-    }
-    -->
-    </script>
+
     <title>出勤希望確認画面</title>
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
@@ -356,20 +344,22 @@
           </div>
         </div>
       </div>
-      <div id="footer">
-        <table>
-          <tr>
-            <td id="footLeft">
-              　
-            </td>
-            <td id="footCenter">
-              　
-            </td>
-            <td id="footRight">
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </body>
+</div><%-- wrapper --%>
+<script type="text/javascript">
+<!--
+/**
+ * 検索
+ */
+function submitSearch() {
+    doSubmit('/kikin/shukkinKibouKakuninSearch.do');
+}
+/**
+ * サブウィンドウを開く
+ */
+function openWindow(){
+    window.open("/kikin/shiftHanrei.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
+}
+-->
+</script>
+</body>
 </html>
