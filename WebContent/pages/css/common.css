@@ -165,15 +165,15 @@ errorbody {
 * テーブルヘッダーのスタイル
 */
 .tblHeader {
-    background-color: #98FB98;
     font-weight: bold;
+    background-color: rgba(152, 251, 152, 0.5);
 }
 
 /*
 * テーブルボディのスタイル
 */
 .tblBody {
-    background-color: #E0FFFF;
+    background-color: rgba(224, 255, 255, 0.5);
 }
 /*
 * 文字色 黒
