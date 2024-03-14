@@ -32,9 +32,9 @@
 		  <div align="center">
 		    <div style="position: relative; z-index: 20;">ID・パスワードを入力してください。</div>
 		    <html:form action="/login" onsubmit="return validateLoginForm(this)">
-		      <html:text property="shainId" size="16" value="sh0001" style="width: 250px; height: 35px; margin-top: 30px; border-radius: 5px; position: relative; z-index: 20;"/>
+		      <html:text property="shainId" size="16" style="width: 250px; height: 35px; margin-top: 30px; border-radius: 5px; position: relative; z-index: 20;"/>
 		      <br/>
-		      <html:password property="password" size="16" redisplay="false" value="sh0001" style="width: 250px; height: 35px; margin-top: 30px; border-radius: 5px; position: relative; z-index: 20;"/>
+		      <html:password property="password" size="16" redisplay="false" style="width: 250px; height: 35px; margin-top: 30px; border-radius: 5px; position: relative; z-index: 20;"/>
 		      <br/>
 		       <%-- エラーメッセージを表示 --%>
 		      <%
