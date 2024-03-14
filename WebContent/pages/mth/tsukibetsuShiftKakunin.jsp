@@ -27,7 +27,7 @@
 <bean:define id="color" value="" type="java.lang.String"/>
 <bean:define id="cntPage" name="tsukibetsuShiftKakuninForm" property="cntPage" type="java.lang.Integer"/>
 <bean:define id="maxPage" name="tsukibetsuShiftKakuninForm" property="maxPage" type="java.lang.Integer"/>
-<bean:define id="pageTitle" value="月別シフト確認画面" type="java.lang.String"/>
+<bean:define id="pageTitle" value="月別シフト確認" type="java.lang.String"/>
 <bean:define id="pageName" value="tsukibetsu" type="java.lang.String"/>
 
 <%
@@ -50,7 +50,7 @@ int dateCount = dateBeanListSize + 1;
 <%@ include file="../header.jsp" %>
 <%-- ヘッダーの読込 --%>
 		
-		<main class="formStyle tsukibetsu">
+		<main class="formStyle">
 			<html:form action="/shukkinKibouKakuninInit" >
 				<div class="paging">
 					表示年月：
@@ -119,45 +119,12 @@ int dateCount = dateBeanListSize + 1;
 						<logic:iterate offset="offset" length="<%=showLength %>" id="tsukibetsuShiftKakuninBeanList" name="tsukibetsuShiftKakuninForm" property="tsukibetsuShiftKakuninBeanList">
 						<html:hidden name="tsukibetsuShiftKakuninBeanList" property="registFlg" value="true" indexed="true"/>
 						<tr class="tblBody">
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol01"/>&nbsp;</td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol02"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol03"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol04"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol05"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol05"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol06"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol07"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol08"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol09"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol11"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol12"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol13"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol14"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol15"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol16"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol17"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol18"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol19"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol20"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol21"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol22"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol23"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol24"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol25"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol26"/></td>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol27"/></td>
-						<% if (dateBeanListSize >= 28) { %>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol28"/></td>
-						<% } %>
-						<% if (dateBeanListSize >= 29) { %>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol29"/></td>
-						<% } %>
-						<% if (dateBeanListSize >= 30) { %>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol30"/></td>
-						<% } %>
-						<% if (dateBeanListSize >= 31) { %>
-						<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol31"/></td>
-						<% } %>
+							<c:forEach var="i" begin="1" end="9">
+							<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol0${i}"/></td>
+							</c:forEach>
+							<c:forEach var="i" begin="10" end="${dateBeanListSize}">
+							<td><bean:write name="tsukibetsuShiftKakuninBeanList" property="symbol${i}"/></td>
+							</c:forEach>
 						</tr>
 						</logic:iterate>
 					</tbody>
