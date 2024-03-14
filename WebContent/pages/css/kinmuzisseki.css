@@ -208,8 +208,14 @@ errorbody {
     z-index: 1;
 }
 
+
+.kinmuzisseki {
+	overflow: hidden;
+}
 .leaf {
   position: absolute;
+  top: 0;
+  left: 0;
   padding: 0;
   margin: 0;
   width: 100%;
