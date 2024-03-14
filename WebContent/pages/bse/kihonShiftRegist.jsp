@@ -122,6 +122,16 @@
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+	  <div class="sakura">
+	  		<span></span>
+	  		<span></span>
+	  		<span></span>
+	  		<span></span>
+	  		<span></span>
+	  		<span></span>
+	  		<span></span>
+	  		<span></span>
+	   	 </div>
     <div id="header">
       <div style="display: inline;">
         社員マスタメンテナンス

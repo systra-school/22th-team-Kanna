@@ -45,6 +45,16 @@
     
   </head>
   <body>
+   <div class="sakura">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+   </div>
     <div id="wrapper">
       <div id="header">
         <table>

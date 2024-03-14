@@ -43,6 +43,16 @@
     <link href="/kikin/pages/css/kihonShift.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+  	<div class="sakura">
+  		<span></span>
+  		<span></span>
+  		<span></span>
+  		<span></span>
+  		<span></span>
+  		<span></span>
+  		<span></span>
+  		<span></span>
+   	 </div>
     <div id="wrapper">
       <div id="header">
         <table>
