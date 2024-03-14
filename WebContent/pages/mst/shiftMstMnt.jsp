@@ -20,127 +20,13 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <bean:size id="beanListSize" name="shiftMstMntForm"
 	property="shiftMstMntBeanList" />
-<html>
-<head>
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
-<script type="text/javascript" src="/kikin/pages/js/common.js"></script>
-<script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
-<script type="text/javascript" src="/kikin/pages/js/message.js"></script>
-<script type="text/javascript" language="Javascript1.1">
-    <!--
-    /**
-     * チェックボックスがチェックされたら true、されていなければ false
-     * param index 対象行番号
-     */
-     function checkDeleteFlg(index) {
-         var deleteShiftId = document.forms[0].elements.deleteShiftId;
-         var isCheck = false;
-         if (deleteShiftId.length > 1) {
-             isCheck = document.forms[0].elements.deleteShiftId[index].checked;
-         } else {
-             isCheck = deleteShiftId.checked;
-         }
-         document.forms[0].elements.namedItem('shiftMstMntBeanList['+ index +'].deleteFlg').value = isCheck;
-     }
-    /**
-     * 新規登録画面へ
-     */
-    function shiftMstMntRegistInit() {
-        document.forms[0].action = "/kikin/shiftMstMntRegistInit.do";
-        document.forms[0].submit();
-    }
-    /**
-     * 更新処理を行う
-     */
-    function shiftMstMntUpdate() {
-        // 一覧のサイズ
-        var listSize = <%= beanListSize %>;
-        // 開始時間エラーメッセージ
-        var startTimeErrMsg = '';
-        // 終了時間エラーメッセージ
-        var endTimeErrMsg = '';
-        // 休憩時間エラーメッセージ
-        var breakTimeErrMsg = '';
-        // From - To エラーメッセージ
-        var fromToErrMsg = '';
-        // エラーメッセージ
-        var errorMsg = '';
-        with(document.forms[0].elements) {
-            for (var i = 0; i < listSize; i++) {
-                // 開始時間を取得する。
-                var startTime = namedItem('shiftMstMntBeanList['+ i +'].startTime').value;
-                // 終了時間を取得する。
-                var endTime = namedItem('shiftMstMntBeanList['+ i +'].endTime').value;
-                // 休憩時間を取得する。
-                var breakTime = namedItem('shiftMstMntBeanList['+ i +'].breakTime').value;
-                // 背景色をクリアする
-                namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'white';
-                namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'white';
-                namedItem('shiftMstMntBeanList['+ i +'].breakTime').style.backgroundColor = 'white';
-                // 時間チェック
-                if (!startTimeErrMsg) {
-                    if (!checkTime(startTime)) {
-                        var strArr = ['開始時間'];
-                        startTimeErrMsg = getMessage('E-MSG-000004', strArr);
-                        namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'red';
-                    }
-                }
-                if (!endTimeErrMsg) {
-                    if (!checkTime(endTime)) {
-                        var strArr = ['終了時間'];
-                        endTimeErrMsg = getMessage('E-MSG-000004', strArr);
-                        namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'red';
-                    }
-                }
-                if (!breakTimeErrMsg) {
-                    if (!checkTime(breakTime)) {
-                        var strArr = ['休憩時間'];
-                        breakTimeErrMsg = getMessage('E-MSG-000004', strArr);
-                        namedItem('shiftMstMntBeanList['+ i +'].breakTime').style.backgroundColor = 'red';
-                    }
-                }
-                // from - to のチェック
-                if (!checkTimeCompare(startTime, endTime)) {
-                  if (checkTime(startTime) && checkTime(endTime)) {
-                      fromToErrMsg = getMessageCodeOnly('E-MSG-000005');
-                      namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'red';
-                      namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'red';
-                  }
-                }
-            }
-        }
-        // エラーメッセージ
-        errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
-        if (errorMsg) {
-            alert(errorMsg);
-            // エラー
-            return false;
-        }
-        document.forms[0].submit();
-    }
-    -->
-    </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>シフトマスタメンテナンス画面</title>
-<link href="/kikin/pages/css/shift.css" rel="stylesheet"type="text/css" />
-</head>
-<body>
-	<div id="wrapper">
-		<div id="header">
-			<table>
-				<tr>
-					<td id="headLeft"><input value="戻る" type="button"
-						class="smlButton1" onclick="doSubmit('/kikin/shiftMstMntBack.do')" />
-					</td>
-					<td id="headCenter">シフトマスタメンテナンス</td>
-					<td id="headRight"><input value="ログアウト" type="button"
-						class="smlButton1" onclick="logout()" /></td>
-				</tr>
-			</table>
-		</div>
-		<div id="gymBody">
+<bean:define id="pageTitle" value="シフトマスタメンテナンス" type="java.lang.String"/>
+<bean:define id="pageName" value="shift" type="java.lang.String"/>
+
+<%@ include file="../header.jsp" %>
+<%-- ヘッダーの読込 --%>
+
+		<main class="formStyle shiftMst">
 			<html:form action="/shiftMstMntUpdate">
 			<table border="1" cellpadding="0" cellspacing="0" align ="center">
 				<div  style="overflow: auto">
@@ -196,21 +82,110 @@
 				</div>
 			</table>
 			</html:form>
+		</main>
+	<footer class="footer">
+		<div class="footer_btn footer_btn__right">
+			<input value="新規登録" type="button" class="smlButton1" onclick="shiftMstMntRegistInit()" />
+			<input value="更新" type="button" class="smlButton1" onclick="shiftMstMntUpdate()" />
 		</div>
-		<div id="footer">
-			<table>
-				<tr>
-					<td id="footLeft"></td>
-					<td id="footCenter"></td>
-					<td id="footRight"><input value="新規登録" type="button"
-						class="smlButton1" onclick="shiftMstMntRegistInit()" /> <input
-						value="更新" type="button" class="smlButton1"
-						onclick="shiftMstMntUpdate()" /></t	d>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div class="snow">●</div>
+	</footer><%-- footer --%>
+</div><%-- wrapper --%>
+<div class="snow">●</div>
 <div class="snow snow2nd">●</div>
+
+<script type="text/javascript">
+<!--
+/**
+ * チェックボックスがチェックされたら true、されていなければ false
+ * param index 対象行番号
+ */
+ function checkDeleteFlg(index) {
+     var deleteShiftId = document.forms[0].elements.deleteShiftId;
+     var isCheck = false;
+     if (deleteShiftId.length > 1) {
+         isCheck = document.forms[0].elements.deleteShiftId[index].checked;
+     } else {
+         isCheck = deleteShiftId.checked;
+     }
+     document.forms[0].elements.namedItem('shiftMstMntBeanList['+ index +'].deleteFlg').value = isCheck;
+ }
+/**
+ * 新規登録画面へ
+ */
+function shiftMstMntRegistInit() {
+    document.forms[0].action = "/kikin/shiftMstMntRegistInit.do";
+    document.forms[0].submit();
+}
+/**
+ * 更新処理を行う
+ */
+function shiftMstMntUpdate() {
+    // 一覧のサイズ
+    var listSize = <%= beanListSize %>;
+    // 開始時間エラーメッセージ
+    var startTimeErrMsg = '';
+    // 終了時間エラーメッセージ
+    var endTimeErrMsg = '';
+    // 休憩時間エラーメッセージ
+    var breakTimeErrMsg = '';
+    // From - To エラーメッセージ
+    var fromToErrMsg = '';
+    // エラーメッセージ
+    var errorMsg = '';
+    with(document.forms[0].elements) {
+        for (var i = 0; i < listSize; i++) {
+            // 開始時間を取得する。
+            var startTime = namedItem('shiftMstMntBeanList['+ i +'].startTime').value;
+            // 終了時間を取得する。
+            var endTime = namedItem('shiftMstMntBeanList['+ i +'].endTime').value;
+            // 休憩時間を取得する。
+            var breakTime = namedItem('shiftMstMntBeanList['+ i +'].breakTime').value;
+            // 背景色をクリアする
+            namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'white';
+            namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'white';
+            namedItem('shiftMstMntBeanList['+ i +'].breakTime').style.backgroundColor = 'white';
+            // 時間チェック
+            if (!startTimeErrMsg) {
+                if (!checkTime(startTime)) {
+                    var strArr = ['開始時間'];
+                    startTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                    namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'red';
+                }
+            }
+            if (!endTimeErrMsg) {
+                if (!checkTime(endTime)) {
+                    var strArr = ['終了時間'];
+                    endTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                    namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'red';
+                }
+            }
+            if (!breakTimeErrMsg) {
+                if (!checkTime(breakTime)) {
+                    var strArr = ['休憩時間'];
+                    breakTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                    namedItem('shiftMstMntBeanList['+ i +'].breakTime').style.backgroundColor = 'red';
+                }
+            }
+            // from - to のチェック
+            if (!checkTimeCompare(startTime, endTime)) {
+              if (checkTime(startTime) && checkTime(endTime)) {
+                  fromToErrMsg = getMessageCodeOnly('E-MSG-000005');
+                  namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'red';
+                  namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'red';
+              }
+            }
+        }
+    }
+    // エラーメッセージ
+    errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
+    if (errorMsg) {
+        alert(errorMsg);
+        // エラー
+        return false;
+    }
+    document.forms[0].submit();
+}
+-->
+</script>
 </body>
 </html>
