@@ -6,6 +6,8 @@
  */
 package form.mth;
 
+import java.util.List;
+
 /**
  * 説明：月別シフト
  * @author naraki
@@ -82,7 +84,13 @@ public class TsukibetsuShiftNyuuryokuBean {
 
     /** 登録フラグ */
     private boolean registFlg;
-
+    
+    /** 希望日反映用(ばばれいな) **/
+    private  List<Boolean> backColor;
+    
+    
+    
+    
     /**
      * @return shiftId01
      */
@@ -491,6 +499,13 @@ public class TsukibetsuShiftNyuuryokuBean {
     public void setRegistFlg(boolean registFlg) {
         this.registFlg = registFlg;
     }
+	public  List<Boolean> getBackColor() {
+		return backColor;
+	}
+	public  void setBackColor(List<Boolean> backColor) {
+		this.backColor = backColor;
+	}
+	
 
 
 }

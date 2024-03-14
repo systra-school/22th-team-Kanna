@@ -173,6 +173,7 @@ public class TsukibetsuShiftNyuuryokuKihonHaneiAction extends TsukibetsuShiftNyu
         
         Set<String> Keys1 = tukiKihonShiftMap.keySet();
         Set<String> Keys2 = tsukibetsuShiftDtoMap.keySet();
+        
         for (String key1 : Keys1) {
         	for (String key2 : Keys2) {
         		if(key1.equals(key2)) {
@@ -189,18 +190,32 @@ public class TsukibetsuShiftNyuuryokuKihonHaneiAction extends TsukibetsuShiftNyu
         ComboListUtilLogic comboListUtils = new ComboListUtilLogic();
         Map<String, String> shiftCmbMap = comboListUtils.getComboShift(true);
         Map<String, String> yearMonthCmbMap = comboListUtils.getComboYearMonth(CommonUtils.getFisicalDay(CommonConstant.yearMonthNoSl), 3, ComboListUtilLogic.KBN_YEARMONTH_NEXT, false);
-
+       
+        /** 希望日反映用(ばばれいな) **/
+        List<Boolean> backColor = new ArrayList<Boolean>();
+        
         if (CheckUtils.isEmpty(kihonShiftDtoMap)) {
             // データなし
+        	for(int i= 0;i< tsukibetsuShiftBeanList.size();i++) {
+        		
+        		backColor.add(i, false);      
+        	}
             TsukibetsuShiftNyuuryokuBean tsukibetsuShiftBean = new TsukibetsuShiftNyuuryokuBean();
             tsukibetsuShiftBean.setShainId(loginUserDto.getShainId());
             tsukibetsuShiftBean.setShainName(loginUserDto.getShainName());
             tsukibetsuShiftBean.setRegistFlg(true);
+            tsukibetsuShiftBean.setBackColor(backColor);
 
             tsukibetsuShiftBeanList.add(tsukibetsuShiftBean);
         } else {
             // データあり
             tsukibetsuShiftBeanList = dtoToBean(tsukibetsuShiftDtoMap, loginUserDto);
+            for(int i= 0; i < tsukibetsuShiftBeanList.size();i++) {
+            	for(int j =0; j < 31;j++) {
+            		backColor.add(false);
+            	}
+            	tsukibetsuShiftBeanList.get(i).setBackColor(backColor);
+            }
         }
 
         // フォームにデータをセットする
@@ -276,4 +291,137 @@ public class TsukibetsuShiftNyuuryokuKihonHaneiAction extends TsukibetsuShiftNyu
 
         return tsukibetsuShiftBeanList;
     }
+  
+    
+    /**
+     * 月別入力に引き渡し用メソッド
+     */
+    public  List<TsukibetsuShiftNyuuryokuBean> test(ActionMapping mapping, ActionForm form,
+            HttpServletRequest req, HttpServletResponse res) throws Exception {
+    	
+        log.info(new Throwable().getStackTrace()[0].getMethodName());
+
+        // フォワードキー
+        String forward = CommonConstant.SUCCESS;
+
+        // セッション
+        HttpSession session = req.getSession();
+
+        // ログインユーザ情報をセッションより取得
+        LoginUserDto loginUserDto = (LoginUserDto) session.getAttribute(RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO);
+
+        // 対象年月
+        String yearMonth = CommonUtils.getFisicalDay(CommonConstant.yearMonthNoSl);
+
+        // ロジック生成
+        KihonShiftLogic KihonShiftLogic = new KihonShiftLogic();
+
+        // 対象年月の月情報を取得する。
+        List<DateBean> dateBeanList = CommonUtils.getDateBeanList(yearMonth);
+        
+        // 月初の曜日を取得（3-2-1）
+        String firstDate = dateBeanList.get(0).getYoubi();
+        int firstDateNum = 0;
+        switch(firstDate) {
+        case "月":
+        	firstDateNum = 0;
+        	break;
+        case "火":
+        	firstDateNum = 1;
+        	break;
+        case "水":
+        	firstDateNum = 2;
+        	break;
+        case "木":
+        	firstDateNum = 3;
+        	break;
+        case "金":
+        	firstDateNum = 4;
+        	break;
+        case "土":
+        	firstDateNum = 5;
+        	break;
+        case "日":
+        	firstDateNum = 6;
+        	break;
+        }
+        
+        // 配列の生成（3-2-2）
+        Map<String, KihonShiftDto> kihonShiftDtoMap = KihonShiftLogic.getKihonShiftData();
+        Map<String, List<String>> kihonShift = new HashMap<String, List<String>>();
+        for(Entry<String, KihonShiftDto> entry : kihonShiftDtoMap.entrySet()) {
+            List<String> dateList = new ArrayList<String>();
+        	dateList.add(0, entry.getValue().getShiftIdOnMonday());
+        	dateList.add(1, entry.getValue().getShiftIdOnTuesday());
+        	dateList.add(2, entry.getValue().getShiftIdOnWednesday());
+        	dateList.add(3, entry.getValue().getShiftIdOnThursday());
+        	dateList.add(4, entry.getValue().getShiftIdOnFriday());
+        	dateList.add(5, entry.getValue().getShiftIdOnSaturday());
+        	dateList.add(6, entry.getValue().getShiftIdOnSunday());
+        	kihonShift.put(entry.getKey(), dateList);
+    	}
+        
+        Map<String, String[]> tukiKihonShiftMap = new HashMap<String, String[]>();
+        Set<String> kihonShiftKeys = kihonShift.keySet();
+        for (String key : kihonShiftKeys) {
+            String[] tukiKihonShift = new String[dateBeanList.size()];
+        	for(int i = 0; i < dateBeanList.size(); i++) {
+	        	if(dateBeanList.get(i).getYoubi().equals("月")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(0);
+	        	}else if(dateBeanList.get(i).getYoubi().equals("火")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(1);
+	        	}else if(dateBeanList.get(i).getYoubi().equals("水")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(2);
+	        	}else if(dateBeanList.get(i).getYoubi().equals("木")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(3);
+	        	}else if(dateBeanList.get(i).getYoubi().equals("金")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(4);
+	        	}else if(dateBeanList.get(i).getYoubi().equals("土")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(5);
+	        	}else if(dateBeanList.get(i).getYoubi().equals("日")) {
+	        		tukiKihonShift[i] = kihonShift.get(key).get(6);
+	        	}
+            }
+        	tukiKihonShiftMap.put(key, tukiKihonShift);
+        }
+        
+        // ロジック生成
+        TsukibetsuShiftLogic tsukibetsuShiftLogic = new TsukibetsuShiftLogic();
+
+        // 希望シフトIDを取得する（3-2-3-1）
+        Map<String,List<TsukibetsuShiftDto>> tsukibetsuShiftDtoMap = tsukibetsuShiftLogic.getTsukibetsuShiftDtoMap(yearMonth, false);
+        
+        Set<String> Keys1 = tukiKihonShiftMap.keySet();
+        Set<String> Keys2 = tsukibetsuShiftDtoMap.keySet();
+        
+        for (String key1 : Keys1) {
+        	for (String key2 : Keys2) {
+        		if(key1.equals(key2)) {
+        			for(int i = 0; i < tsukibetsuShiftDtoMap.get(key2).size(); i++) {
+        				tsukibetsuShiftDtoMap.get(key2).get(i).setShiftId(tukiKihonShiftMap.get(key1)[i]);
+        			}
+        		}
+        	}
+        }
+        
+        List<TsukibetsuShiftNyuuryokuBean> tsukibetsuShiftBeanList = new ArrayList<TsukibetsuShiftNyuuryokuBean>();
+
+        if (CheckUtils.isEmpty(kihonShiftDtoMap)) {
+            // データなし
+            TsukibetsuShiftNyuuryokuBean tsukibetsuShiftBean = new TsukibetsuShiftNyuuryokuBean();
+            tsukibetsuShiftBean.setShainId(loginUserDto.getShainId());
+            tsukibetsuShiftBean.setShainName(loginUserDto.getShainName());
+            tsukibetsuShiftBean.setRegistFlg(true);
+
+            tsukibetsuShiftBeanList.add(tsukibetsuShiftBean);
+        } else {
+            // データあり
+            tsukibetsuShiftBeanList = dtoToBean(tsukibetsuShiftDtoMap, loginUserDto);
+            
+        }
+
+        
+        return tsukibetsuShiftBeanList;
+    }
+
 }

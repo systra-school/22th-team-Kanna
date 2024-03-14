@@ -98,3 +98,7 @@ th, td {
     transform: scale(1.05);
     
 }
+
+.bcColor{
+	border: 1px solid red;
+}

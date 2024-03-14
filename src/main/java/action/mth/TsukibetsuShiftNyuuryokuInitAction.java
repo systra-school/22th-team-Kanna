@@ -88,17 +88,32 @@ public class TsukibetsuShiftNyuuryokuInitAction extends TsukibetsuShiftNyuuryoku
         Map<String, String> shiftCmbMap = comboListUtils.getComboShift(true);
         Map<String, String> yearMonthCmbMap = comboListUtils.getComboYearMonth(CommonUtils.getFisicalDay(CommonConstant.yearMonthNoSl), 3, ComboListUtilLogic.KBN_YEARMONTH_NEXT, false);
 
+        //反映ボタン用ブーリアンリスト(馬場玲奈)        
+        List<Boolean> backColor = new ArrayList<Boolean>();
+        
+        for(int i= 0;i< tsukibetsuShiftBeanList.size();i++) {
+        	
+        	backColor.add(i, false);      
+        }
+        
         if (CheckUtils.isEmpty(tsukibetsuShiftDtoMap)) {
             // データなし
             TsukibetsuShiftNyuuryokuBean tsukibetsuShiftBean = new TsukibetsuShiftNyuuryokuBean();
             tsukibetsuShiftBean.setShainId(loginUserDto.getShainId());
             tsukibetsuShiftBean.setShainName(loginUserDto.getShainName());
             tsukibetsuShiftBean.setRegistFlg(true);
+            tsukibetsuShiftBean.setBackColor(backColor);
 
             tsukibetsuShiftBeanList.add(tsukibetsuShiftBean);
         } else {
             // データあり
             tsukibetsuShiftBeanList = dtoToBean(tsukibetsuShiftDtoMap, loginUserDto);
+            for(int i= 0; i < tsukibetsuShiftBeanList.size();i++) {
+            	for(int j =0; j < 31;j++) {
+            		backColor.add(false);
+            	}
+            	tsukibetsuShiftBeanList.get(i).setBackColor(backColor);
+            }
         }
 
         // フォームにデータをセットする

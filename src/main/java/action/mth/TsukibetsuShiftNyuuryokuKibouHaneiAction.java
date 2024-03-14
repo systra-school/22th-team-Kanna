@@ -90,17 +90,61 @@ public class TsukibetsuShiftNyuuryokuKibouHaneiAction extends TsukibetsuShiftNyu
 
         if (CheckUtils.isEmpty(tsukibetsuShiftDtoMap)) {
             // データなし
-            TsukibetsuShiftNyuuryokuBean tsukibetsuShiftBean = new TsukibetsuShiftNyuuryokuBean();
+        	TsukibetsuShiftNyuuryokuBean tsukibetsuShiftBean = new TsukibetsuShiftNyuuryokuBean();
             tsukibetsuShiftBean.setShainId(loginUserDto.getShainId());
             tsukibetsuShiftBean.setShainName(loginUserDto.getShainName());
             tsukibetsuShiftBean.setRegistFlg(true);
-
+            
             tsukibetsuShiftBeanList.add(tsukibetsuShiftBean);
         } else {
             // データあり
             tsukibetsuShiftBeanList = dtoToBean(tsukibetsuShiftDtoMap, loginUserDto);
         }
-
+        
+      /** 希望日反映用(ばばれいな) **/
+        TsukibetsuShiftNyuuryokuKihonHaneiAction kihonShift = new TsukibetsuShiftNyuuryokuKihonHaneiAction();
+        List<TsukibetsuShiftNyuuryokuBean> tsukibetsuKihonBeanList = kihonShift.test(mapping,form,req,res);
+        
+        for(int i = 0; i < tsukibetsuShiftBeanList.size();i++) {
+        	Method[] methods = tsukibetsuShiftBeanList.get(i).getClass().getMethods();
+        	Method[] methodKihon = tsukibetsuKihonBeanList.get(i).getClass().getMethods();
+            Comparator<Method> asc = new MethodComparator();
+            Comparator<Method> ascKihon = new MethodComparator();
+            // 配列をソート
+            Arrays.sort(methods, asc); 
+            Arrays.sort(methodKihon,ascKihon);
+            
+            List<String> kibou = new ArrayList<String>();
+            List<String> kihon = new ArrayList<String>();
+            List<Boolean> backColor = new ArrayList<>();
+        	for(int j = 5; j < (dateBeanList.size()+6);j++) {
+        		if(methods[j].getName().startsWith("getShiftId")) {
+        			String a = (String)methods[j].invoke(tsukibetsuShiftBeanList.get(i));
+        			if(a == null) {
+        				a = "-1";
+        			}
+        			kibou.add(a);
+        		}
+        		if(methodKihon[j].getName().startsWith("getShiftId")) {
+        			String b = (String)methodKihon[j].invoke(tsukibetsuKihonBeanList.get(i));
+        			if(b == null) {
+        				b = "-1";
+        			}
+        			kihon.add(b);
+        		}
+        		
+        	}
+			for (int j = 0; j < kibou.size(); j++) {
+				if (!kibou.get(j).equals(kihon.get(j))) {
+					backColor.add(true);
+				} else {
+					backColor.add(false);
+				}
+			}
+        	
+        	tsukibetsuShiftBeanList.get(i).setBackColor(backColor);
+        }
+        
         // フォームにデータをセットする
         tsukibetsuShiftForm.setShiftCmbMap(shiftCmbMap);
         tsukibetsuShiftForm.setYearMonthCmbMap(yearMonthCmbMap);
@@ -174,4 +218,10 @@ public class TsukibetsuShiftNyuuryokuKibouHaneiAction extends TsukibetsuShiftNyu
 
         return tsukibetsuShiftBeanList;
     }
+	/*
+	 * public boolean BackColor(){ boolean notSame;
+	 * 
+	 * }
+	 */
+
 }
