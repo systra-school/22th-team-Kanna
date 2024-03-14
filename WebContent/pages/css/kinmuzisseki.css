@@ -2,7 +2,6 @@
 	display: flex;
     justify-content: space-between;
     margin-bottom: 6px;
-    z-index: 1;
 }
 
 /* table */
@@ -58,7 +57,7 @@ tr {
 	width: 98%;
 	height: 21px;
 	font-size: 13px;
-	z-index: 1;
+	z-index: 2;
 }
 
 /*
@@ -218,7 +217,7 @@ errorbody {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: -1;
 }
 
 .leaf li{
@@ -227,7 +226,7 @@ errorbody {
   top: -50px;
   background: #c2704e;
   border-radius: 0% 70%;
-  z-index:0;
+  z-index:-1;
 }
 
 
@@ -264,7 +263,7 @@ errorbody {
   animation: fall 10s linear infinite,
              sway1 3s ease-in-out infinite alternate;
   animation-delay: -2s;
-  z-index: 0;
+  z-index: -1;
 }
 
 .leaf li:nth-child(2){
@@ -276,7 +275,7 @@ errorbody {
   animation: fall 15s linear infinite,
              sway1 2s ease-in-out infinite alternate;
   animation-delay: -8s;
-  z-index: 0;
+  z-index: -1;
 }
 
 .leaf li:nth-child(3){
@@ -288,7 +287,7 @@ errorbody {
   animation: fall 9s linear infinite,
              sway1 3.5s ease-in-out infinite alternate;
   animation-delay: -13s;
-  z-index: 0;
+  z-index: -1;
 }
 
 .leaf li:nth-child(4){
@@ -300,7 +299,7 @@ errorbody {
   animation: fall 8s linear infinite,
              sway2 4s ease-in-out infinite alternate;
   animation-delay: -7s;
-  z-index: 0;
+  z-index: -1;
 }
 .leaf li:nth-child(5){
   left: 40%;
@@ -310,7 +309,7 @@ errorbody {
   animation: fall 10s linear infinite,
              sway1 4s ease-in-out infinite alternate;
   animation-delay: 0s;
-  z-index: 0;
+  z-index: -1;
 }
 .leaf li:nth-child(6){
   left: 55%;
@@ -321,7 +320,7 @@ errorbody {
   animation: fall 11s linear infinite,
              sway2 3s ease-in-out infinite alternate;
   animation-delay: -3s;
-  z-index: 0;
+  z-index: -1;
 }
 .leaf li:nth-child(7){
   left: 65%;
@@ -331,7 +330,7 @@ errorbody {
   animation: fall 7s linear infinite,
              sway2 3.5s ease-in-out infinite alternate;
   animation-delay: -7s;
-  z-index: 0;
+  z-index: -1;
 }
 .leaf li:nth-child(8){
   left: 50%;
@@ -342,7 +341,7 @@ errorbody {
   animation: fall 7s linear infinite,
              sway1 3s ease-in-out infinite alternate;
   animation-delay: -3s;
-  z-index: 0;
+  z-index: -1;
 }
 .leaf li:nth-child(9){
   left: 80%;
@@ -352,5 +351,5 @@ errorbody {
   animation: fall 10s linear infinite,
              sway2 4s ease-in-out infinite alternate;
   animation-delay: -4s;
-  z-index: 0;
+  z-index: -1;
 }
