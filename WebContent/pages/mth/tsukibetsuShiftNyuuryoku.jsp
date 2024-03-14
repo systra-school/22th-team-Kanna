@@ -557,9 +557,9 @@ if (listSize > intShowLength) {
         </html:form>
       </div>
         <div style="widht: 100%; padding-left: 50px;">
-          <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
-          <input value="基本シフト反映" type="button" class="lngButton"  onclick="submitKihonShift()" /><%-- onclick属性を追加（2024/02/23　太田） --%>
-          <input value="出勤希望日反映" type="button" class="lngButton"  onclick="submitShukkinKibou()" />
+          <input value="凡例表示" type="button" class="lngButton buttom"  onclick="openWindow()" style="height: 37px;" />
+          <input value="基本シフト反映" type="button" class="lngButton buttom"  onclick="submitKihonShift()" style="height: 37px;" /><%-- onclick属性を追加（2024/02/23　太田） --%>
+          <input value="出勤希望日反映" type="button" class="lngButton buttom"  onclick="submitShukkinKibou()" style="height: 37px;" />
         </div>
       <div id="footer">
         <table>

@@ -18,7 +18,7 @@
 			<img id="dragon" src="http://localhost:8080/kikin/pages/cmn/img/dragon.gif" alt="dragon" width="800px" height="400px" style="position: absolute; top: 150px; left: -800px; z-index: 10;">
 			
 			<audio loop id="btn_audio">
-				<source src="audio/dragon_fly1.mp3" type="audio/mp3">
+				<source src="http://localhost:8080/kikin/pages/cmn/audio/dragon_fly1.mp3" type="audio/mp3">
 			</audio>
 			<div class="rains">
 			    <span></span><span></span><span></span><span></span><span></span>

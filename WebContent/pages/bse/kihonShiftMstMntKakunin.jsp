@@ -40,6 +40,7 @@
     基本シフト確認
     </title>
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/kihonShift.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="wrapper">
@@ -47,13 +48,13 @@
         <table>
           <tr>
             <td id="headLeft">
-              <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/kihonShiftBack.do')" />
+              <input class="buttom" value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/kihonShiftBack.do')" />
             </td>
             <td id="headCenter">
               基本シフト確認
             </td>
             <td id="headRight">
-              <input value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
+              <input class="buttom" value="ログアウト" type="button" class="smlButton"  onclick="logout()" />
             </td>
           </tr>
         </table>

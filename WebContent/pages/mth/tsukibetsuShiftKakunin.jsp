@@ -132,13 +132,13 @@ int dateCount = dateBeanListSize + 1;
 	        </html:form>
 	        
 			<div class="btn btn__bonrei">
-				<input value="–}—á•\Ž¦" type="button" class="lngButton"  onclick="openWindow()" />
+				<input value="–}—á•\Ž¦" type="button" class="lngButton buttom" style="height: 40px;"  onclick="openWindow()"  />
 			</div>
 		</main><%-- main --%>
 		
 		<footer class="footer">
 			<div class="footer_btn footer_btn__left">
-				<input value="ˆóü" type="button" class="smlButton"  onclick="submitPrint()" />
+				<input value="ˆóü" type="button" class="smlButton buttom"  onclick="submitPrint()" />
 			</div>
 		</footer><%-- footer --%>
 		<p class="copy">&copy; TEAM KANNA</p>

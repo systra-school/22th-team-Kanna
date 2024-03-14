@@ -56,3 +56,45 @@ th, td {
 .tsukibetsu .table tbody tr td {
 	min-width: 40px;
 }
+
+.smlButton{
+	font-size: 13px;
+	height: 35px;
+	display: inline-block;
+    color: #fff;
+    
+    padding: 8px;
+    border-radius:30px;
+    border-color: #fff;
+    text-decoration: none;
+    outline: none;
+    /*背景色*/
+    background: linear-gradient(to right, #9900FF 0%, #9900CC 20%, #990099 40%, #990066 60%, #990033 80%, #990000 100%);
+    /*アニメーションの指定*/ 
+    transition: all 0.3s ease-out;
+}
+
+.smlButton{
+	transform: scale(1.05);
+}
+
+.buttom{
+	display: inline-block;
+    color: #fff;
+    
+    padding: 8px 30px;
+    border-radius:30px;
+    border-color: #fff;
+    text-decoration: none;
+    outline: none;
+    /*背景色*/
+    background: linear-gradient(to right, #9900FF 0%, #9900CC 20%, #990099 40%, #990066 60%, #990033 80%, #990000 100%);
+    /*アニメーションの指定*/ 
+    transition: all 0.3s ease-out;
+}
+
+/*hoverした際のスケールで全体を拡大し影を付ける*/
+.buttom:hover {
+    transform: scale(1.05);
+    
+}
