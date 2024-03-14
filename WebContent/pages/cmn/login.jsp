@@ -20,6 +20,9 @@
 			<audio loop id="btn_audio">
 				<source src="http://localhost:8080/kikin/pages/cmn/audio/dragon_fly1.mp3" type="audio/mp3">
 			</audio>
+			<audio id="btn_audio2">
+				<source src="http://localhost:8080/kikin/pages/cmn/audio/dragon_cry.mp3" type="audio/mp3">
+			</audio>
 			<div class="rains">
 			    <span></span><span></span><span></span><span></span><span></span>
 			    <span></span><span></span><span></span><span></span><span></span>
@@ -94,6 +97,11 @@
 			// --âπê∫çƒê∂-- //
 			function audio(){
 				document.getElementById('btn_audio').play();
+			}
+			
+			// --âπê∫çƒê∂-- //
+			function audio(){
+				document.getElementById('btn_audio2').play();
 			}
 			
 			
